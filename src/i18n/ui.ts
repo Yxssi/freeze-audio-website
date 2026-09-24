@@ -41,17 +41,17 @@ export const ui = {
     'hero.marquee.pause': 'Pause scrolling',
     'hero.marquee.resume': 'Resume scrolling',
 
-    'engines.eyebrow': 'Five engines',
+    'engines.eyebrow': 'How does it work ?',
     'engines.title.before': 'One buffer, ',
     'engines.title.accent': 'five ways',
     'engines.title.after': ' to read it back.',
     'engines.lead':
-      'Freeze continuously records your signal. Each engine reads that past differently, and the FREEZE button re-captures the current fragment instantly.',
+      'Freeze continuously records your signal. Each engine reads that past sound differently, and the FREEZE button re-captures the current fragment instantly.',
     'engines.reverse.body':
-      'The recent past played backwards, looping continuously over the Size window — with no dead zone.',
+      'The recent past played backwards, looping continuously over the Size window.',
     'engines.reverse.warp': 'Warp sets reverse speed (0.25× to 2.75×).',
     'engines.freeze.body':
-      'A captured fragment looped forever in ping-pong: the sound breathes, with no jumps.',
+      'A captured fragment looped forever.',
     'engines.freeze.warp': 'Warp sets sweep speed (0.25× to 1.5×).',
     'engines.stretch.body':
       'The past crawls by in slow motion, stretched across your track.',
@@ -60,30 +60,30 @@ export const ui = {
       'Tape stop: playback decelerates, reverses, then accelerates again, cycle after cycle.',
     'engines.tape.warp': 'Warp and Size set the cycle length.',
     'engines.grain.body':
-      'Up to 8 windowed grains read backwards and scattered across the window: an inverted cloud.',
+      'Up to 8 windowed grains read backwards and scattered across the window.',
     'engines.grain.warp':
       'Warp sets density (2 to 28 grains/s) and grain length.',
 
-    'showcase.eyebrow': 'Interface',
-    'showcase.title.before': 'Everything fits in ',
-    'showcase.title.accent': 'one window.',
+    'showcase.eyebrow': 'What does it look like ?',
+    'showcase.title.before': 'Everything in ',
+    'showcase.title.accent': 'a single frame.',
     'showcase.alt':
       'Freeze plugin interface: mode strip with Reverse, Freeze (selected), Stretch, Tape and Grain; six knobs for Size, Warp, Feedback, Tone, Mix and Output; waveform scope and FREEZE button.',
     'showcase.caption':
       'Interface capture, Freeze mode selected (no input signal).',
     'showcase.modes.title': 'Mode strip',
     'showcase.modes.body':
-      'All five engines one click away, with the active mode highlighted.',
+      'All five engines just one click away, with the active mode highlighted.',
     'showcase.knobs.title': 'Six knobs',
     'showcase.knobs.body':
-      'Size, Warp, Feedback, Tone, Mix and Output. Double-click resets to the default.',
+      'Size, Warp, Feedback, Tone, Mix and Output. Double-click resets to the default value.',
     'showcase.scope.title': 'Live scope',
     'showcase.scope.body':
-      'The processed waveform in real time, plus the FREEZE button to re-capture the past.',
+      'The processed waveform is visible in real time, with the FREEZE button to re-capture the past.',
 
     'controls.eyebrow': 'Parameters',
     'controls.title.before': 'Few controls, ',
-    'controls.title.accent': 'all useful.',
+    'controls.title.accent': 'but all useful.',
     'controls.size.body': 'Length of the past window the engine reads.',
     'controls.warp.body': 'Speed modulation, unique to each engine.',
     'controls.feedback.body': 'Feeds the processed signal back into the buffer.',
@@ -101,7 +101,7 @@ export const ui = {
     'controls.range.gain': '± 24 dB',
     'controls.range.bool': 'on / off',
     'controls.range.button': 'button',
-    'controls.presets.title': '6 factory presets',
+    'controls.presets.title': '6 presets',
     'controls.presets.intro':
       'A starting point for each engine, exposed to the host as Audio Unit factory presets.',
     'controls.presets.col.preset': 'Preset',
@@ -123,7 +123,7 @@ export const ui = {
     'download.title.before': 'Freeze {version} ',
     'download.title.accent': 'for macOS.',
     'download.lead':
-      'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel. No installer, no account.',
+      'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel.',
     'download.cta': 'Download the .zip ({size} KB)',
     'download.file': 'File',
     'download.version': 'Version',
@@ -131,12 +131,12 @@ export const ui = {
     'download.sha': 'SHA-256',
     'download.systemValue': 'macOS {min}+',
 
-    'install.eyebrow': 'Install',
+    'install.eyebrow': 'How to install ?',
     'install.title.before': 'Installed in ',
     'install.title.accent': 'three steps.',
     'install.step1.title': 'Unzip the archive',
     'install.step1.body':
-      'Double-click FreezeAudio-1.0.0-macOS.zip — you get Freeze.component.',
+      'Double-click FreezeAudio-1.0.0-macOS.zip: you get Freeze.component.',
     'install.step2.title': 'Copy the plugin',
     'install.step2.body.before':
       'In Finder, choose Go › Go to Folder…, paste ',
@@ -222,31 +222,31 @@ export const ui = {
     'hero.marquee.pause': 'Mettre en pause le défilement',
     'hero.marquee.resume': 'Relancer le défilement',
 
-    'engines.eyebrow': 'Cinq moteurs',
+    'engines.eyebrow': 'Comment ça marche ?',
     'engines.title.before': 'Une mémoire tampon, ',
     'engines.title.accent': 'cinq façons',
     'engines.title.after': ' de la relire.',
     'engines.lead':
       'Freeze enregistre en continu votre signal. Chaque moteur relit ce passé autrement, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
     'engines.reverse.body':
-      'Le passé proche lu à l’envers, en boucle continue sur la fenêtre Size — sans zone morte.',
+      'Le passé proche lu à l’envers, en boucle continue sur la fenêtre Size.',
     'engines.reverse.warp': 'Warp règle la vitesse de recul (0,25× à 2,75×).',
     'engines.freeze.body':
-      'Un fragment capturé puis rejoué en ping-pong infini : le son respire, sans saut.',
+      'Un fragment capturé puis rejoué en ping-pong infini.',
     'engines.freeze.warp': 'Warp règle la vitesse de balayage (0,25× à 1,5×).',
     'engines.stretch.body':
-      'Le passé défile au ralenti, comme un slow-motion de votre piste.',
+      'Le passé défile au ralenti, comme une version ralentie de votre piste.',
     'engines.stretch.warp': 'Warp règle le ralenti (0,05× à 0,95×).',
     'engines.tape.body':
       'Arrêt de bande : la lecture décélère, s’inverse, puis ré-accélère, cycle après cycle.',
     'engines.tape.warp': 'Warp et Size fixent la durée du cycle.',
     'engines.grain.body':
-      'Jusqu’à 8 grains fenêtrés lus à l’envers, semés dans la fenêtre : un nuage inversé.',
+      'Jusqu’à 8 grains fenêtrés lus à l’envers, semés dans la fenêtre.',
     'engines.grain.warp':
       'Warp règle la densité (2 à 28 grains/s) et la longueur des grains.',
 
-    'showcase.eyebrow': 'Interface',
-    'showcase.title.before': 'Tout tient dans ',
+    'showcase.eyebrow': 'A quoi ça ressemble ?',
+    'showcase.title.before': 'Toutes les fonctionnalités dans ',
     'showcase.title.accent': 'une seule fenêtre.',
     'showcase.alt':
       'Interface du plugin Freeze : bandeau des modes Reverse, Freeze (sélectionné), Stretch, Tape et Grain ; six potentiomètres Size, Warp, Feedback, Tone, Mix et Output ; scope de forme d’onde et bouton FREEZE.',
@@ -254,17 +254,17 @@ export const ui = {
       'Capture de l’interface, mode Freeze sélectionné (sans signal en entrée).',
     'showcase.modes.title': 'Bandeau des modes',
     'showcase.modes.body':
-      'Les 5 moteurs à portée de clic, le mode actif surligné.',
+      'Les 5 moteurs à portée de clic, le mode actif est surligné.',
     'showcase.knobs.title': 'Six potentiomètres',
     'showcase.knobs.body':
       'Size, Warp, Feedback, Tone, Mix et Output. Double-clic : retour à la valeur par défaut.',
     'showcase.scope.title': 'Scope en direct',
     'showcase.scope.body':
-      'La forme d’onde du signal traité, et le bouton FREEZE pour re-geler le passé.',
+      'Visualisation de l\'onde du signal traité et du bouton FREEZE pour re-geler le passé.',
 
     'controls.eyebrow': 'Paramètres',
     'controls.title.before': 'Peu de réglages, ',
-    'controls.title.accent': 'tous utiles.',
+    'controls.title.accent': 'mais tous utiles.',
     'controls.size.body':
       'Longueur de la fenêtre de passé relue par le moteur.',
     'controls.warp.body': 'Modulation de vitesse, propre à chaque moteur.',
@@ -286,7 +286,7 @@ export const ui = {
     'controls.range.gain': '± 24 dB',
     'controls.range.bool': 'on / off',
     'controls.range.button': 'bouton',
-    'controls.presets.title': '6 presets factory',
+    'controls.presets.title': '6 presets',
     'controls.presets.intro':
       'Un point de départ pour chaque moteur, exposés à l’hôte comme presets factory Audio Unit.',
     'controls.presets.col.preset': 'Preset',
@@ -308,7 +308,7 @@ export const ui = {
     'download.title.before': 'Freeze {version} ',
     'download.title.accent': 'pour macOS.',
     'download.lead':
-      'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel. Aucun installeur, aucun compte.',
+      'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel.',
     'download.cta': 'Télécharger le .zip ({size} Ko)',
     'download.file': 'Fichier',
     'download.version': 'Version',
@@ -316,7 +316,7 @@ export const ui = {
     'download.sha': 'SHA-256',
     'download.systemValue': 'macOS {min}+',
 
-    'install.eyebrow': 'Installation',
+    'install.eyebrow': 'Comment l\'installer ?',
     'install.title.before': 'Installé en ',
     'install.title.accent': 'trois étapes.',
     'install.step1.title': 'Décompressez l’archive',
