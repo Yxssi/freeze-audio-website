@@ -1,0 +1,66 @@
+---
+import { statSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Hero from './Hero.astro';
+import Engines from './Engines.astro';
+import Showcase from './Showcase.astro';
+import Controls from './Controls.astro';
+import Download from './Download.astro';
+import Install from './Install.astro';
+import Compat from './Compat.astro';
+import Faq from './Faq.astro';
+import Footer from './Footer.astro';
+import { release, site } from '../site';
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+const zipBytes = statSync(join(process.cwd(), 'public', release.downloadPath)).size;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: site.name,
+  alternateName: 'Freeze — Time Effector',
+  description: t('meta.description'),
+  url: site.url,
+  applicationCategory: 'MultimediaApplication',
+  applicationSubCategory: t('meta.jsonLdSubCategory'),
+  operatingSystem: `macOS ${release.minMacOS}+`,
+  processorRequirements: t('meta.processor'),
+  softwareVersion: release.version,
+  downloadUrl: new URL(release.downloadPath, site.url).href,
+  fileSize: `${Math.round(zipBytes / 1024)} KB`,
+  image: new URL('/og.png', site.url).href,
+  inLanguage: lang,
+  author: { '@type': 'Person', name: site.author },
+};
+---
+
+<Base jsonLd={jsonLd}>
+  <Nav />
+  <main id="content" tabindex="-1">
+    <Hero />
+    <Engines />
+    <Showcase />
+    <Controls />
+    <Download />
+    <Install />
+    <Compat />
+    <Faq />
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main:focus {
+    outline: none;
+  }
+</style>

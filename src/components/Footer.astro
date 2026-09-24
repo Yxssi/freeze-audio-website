@@ -1,0 +1,100 @@
+---
+import Wordmark from './Wordmark.astro';
+import { release } from '../site';
+import {
+  defaultLang,
+  homePath,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+const home = homePath(lang);
+---
+
+<footer class="footer on-dark">
+  <div class="container inner">
+    <div class="brand">
+      <Wordmark />
+      <p>Freeze Audio by sheezy</p>
+    </div>
+    <nav aria-label={t('footer.nav')}>
+      <ul>
+        <li>
+          <a href={release.downloadPath} download>
+            {t('footer.download', { version: release.version })}
+          </a>
+        </li>
+        <li><a href={`${home}#install`}>{t('footer.install')}</a></li>
+        <li><a href={`${home}#compat`}>{t('footer.compat')}</a></li>
+        <li><a href={`${home}#faq`}>{t('footer.faq')}</a></li>
+      </ul>
+    </nav>
+    <p class="legal">{t('footer.legal', { version: release.version })}</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding-block: var(--space-24) var(--space-12);
+    background: var(--bg-dark);
+    color: var(--ink-inverse);
+    --wordmark-dot: var(--color-light-blue);
+  }
+
+  .inner {
+    display: grid;
+    gap: var(--space-10);
+  }
+
+  @media (min-width: 48rem) {
+    .inner {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+    }
+    .legal {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .brand {
+    display: grid;
+    gap: var(--space-4);
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 1;
+  }
+
+  .brand p {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--ink-inverse-2);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  a {
+    display: inline-block;
+    padding-block: var(--space-2);
+    color: var(--ink-inverse);
+  }
+
+  a:hover {
+    color: var(--color-light-blue);
+  }
+
+  .legal {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--line-dark);
+    color: var(--ink-inverse-2);
+    font-size: var(--fs-small);
+  }
+</style>

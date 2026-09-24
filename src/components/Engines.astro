@@ -1,0 +1,113 @@
+---
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+
+const engines = [
+  {
+    name: 'Reverse',
+    body: t('engines.reverse.body'),
+    warp: t('engines.reverse.warp'),
+  },
+  {
+    name: 'Freeze',
+    body: t('engines.freeze.body'),
+    warp: t('engines.freeze.warp'),
+  },
+  {
+    name: 'Stretch',
+    body: t('engines.stretch.body'),
+    warp: t('engines.stretch.warp'),
+  },
+  {
+    name: 'Tape Reverse',
+    body: t('engines.tape.body'),
+    warp: t('engines.tape.warp'),
+  },
+  {
+    name: 'Grain Reverse',
+    body: t('engines.grain.body'),
+    warp: t('engines.grain.warp'),
+  },
+];
+---
+
+<section class="section" id="engines" aria-labelledby="engines-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{t('engines.eyebrow')}</p>
+      <h2 id="engines-title">
+        {t('engines.title.before')}<span class="accent">{t('engines.title.accent')}</span>{t('engines.title.after')}
+      </h2>
+      <p>{t('engines.lead')}</p>
+    </div>
+
+    <ol class="engines">
+      {
+        engines.map((e, i) => (
+          <li class="engine">
+            <span class="num accent" aria-hidden="true">0{i + 1}</span>
+            <h3>{e.name}</h3>
+            <p>{e.body}</p>
+            <p class="warp">{e.warp}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .engines {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .engine {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-8) var(--space-6);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+  }
+
+  .engine:nth-child(odd) {
+    background: var(--bg-tint);
+  }
+
+  .num {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--accent-ink);
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+    margin-top: var(--space-6);
+  }
+
+  .engine p {
+    color: var(--ink-2);
+  }
+
+  .warp {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-subtle);
+    font-size: var(--fs-small);
+  }
+</style>

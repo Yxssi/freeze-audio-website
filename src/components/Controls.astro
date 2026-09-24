@@ -1,0 +1,210 @@
+---
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+
+const params = [
+  { name: 'Size', range: t('controls.range.size'), body: t('controls.size.body') },
+  { name: 'Warp', range: t('controls.range.percent'), body: t('controls.warp.body') },
+  { name: 'Feedback', range: t('controls.range.feedback'), body: t('controls.feedback.body') },
+  { name: 'Tone', range: t('controls.range.tone'), body: t('controls.tone.body') },
+  { name: 'Mix', range: t('controls.range.percent'), body: t('controls.mix.body') },
+  { name: 'Input / Output', range: t('controls.range.gain'), body: t('controls.io.body') },
+  { name: 'Bypass', range: t('controls.range.bool'), body: t('controls.bypass.body') },
+  { name: 'FREEZE', range: t('controls.range.button'), body: t('controls.freeze.body') },
+];
+
+const presets = [
+  { name: 'Init', mode: 'Reverse', size: t('controls.presets.size.1'), mix: t('controls.presets.mix.28') },
+  { name: 'Ghost Phrase', mode: 'Reverse', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.50') },
+  { name: 'Infinite Pad', mode: 'Freeze', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.80') },
+  { name: 'Slow Motion', mode: 'Stretch', size: t('controls.presets.size.3'), mix: t('controls.presets.mix.60') },
+  { name: 'Tape Stop Drama', mode: 'Tape Reverse', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.55') },
+  { name: 'Reverse Cloud', mode: 'Grain Reverse', size: t('controls.presets.size.2_5'), mix: t('controls.presets.mix.68') },
+];
+---
+
+<section class="section" id="controls" aria-labelledby="controls-title">
+  <div class="container grid">
+    <div>
+      <div class="section-head">
+        <p class="eyebrow">{t('controls.eyebrow')}</p>
+        <h2 id="controls-title">
+          {t('controls.title.before')}<span class="accent">{t('controls.title.accent')}</span>
+        </h2>
+      </div>
+      <dl class="params">
+        {
+          params.map((p) => (
+            <div class="param">
+              <dt>
+                {p.name} <span class="range">{p.range}</span>
+              </dt>
+              <dd>{p.body}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <div class="presets-col">
+      <h3 id="presets-title">{t('controls.presets.title')}</h3>
+      <p class="presets-intro">{t('controls.presets.intro')}</p>
+      <div class="table-wrap">
+        <table aria-labelledby="presets-title">
+          <thead>
+            <tr>
+              <th scope="col">{t('controls.presets.col.preset')}</th>
+              <th scope="col">{t('controls.presets.col.engine')}</th>
+              <th scope="col">{t('controls.presets.col.size')}</th>
+              <th scope="col">{t('controls.presets.col.mix')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              presets.map((p) => (
+                <tr>
+                  <th scope="row">{p.name}</th>
+                  <td>{p.mode}</td>
+                  <td>{p.size}</td>
+                  <td>{p.mix}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    gap: var(--space-16);
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  @media (min-width: 64rem) {
+    .grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-24);
+      align-items: start;
+    }
+    .presets-col {
+      position: sticky;
+      top: 6rem;
+    }
+  }
+
+  .section-head {
+    margin-bottom: var(--space-10);
+  }
+
+  .params {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 0 var(--space-8);
+    margin: 0;
+  }
+
+  .param {
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  dt {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .range {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--ink-3);
+    letter-spacing: 0;
+  }
+
+  dd {
+    margin: var(--space-2) 0 0;
+    color: var(--ink-2);
+  }
+
+  .presets-col {
+    padding: var(--space-8);
+    background: var(--bg-lavender);
+    border-radius: var(--radius-xl);
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .presets-intro {
+    margin: var(--space-3) 0 var(--space-6);
+    color: var(--ink-2);
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  th,
+  td {
+    padding: var(--space-3) var(--space-2);
+    border-bottom: 1px solid var(--border-strong);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  thead th {
+    color: var(--ink-3);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  tbody th {
+    font-weight: 600;
+  }
+
+  td {
+    color: var(--ink-2);
+  }
+
+  @media (max-width: 30rem) {
+    .presets-col {
+      padding: var(--space-6) var(--space-4);
+    }
+    th,
+    td {
+      padding-inline: var(--space-2) 0;
+      white-space: normal;
+    }
+  }
+</style>

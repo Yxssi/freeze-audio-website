@@ -1,0 +1,209 @@
+---
+import { release } from '../site';
+import {
+  defaultLang,
+  homePath,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+const home = homePath(lang);
+const modes = ['Reverse', 'Freeze', 'Stretch', 'Tape', 'Grain'];
+const track = [...modes, ...modes, ...modes, ...modes];
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero-inner">
+    <p class="eyebrow">{t('hero.eyebrow')}</p>
+    <h1 id="hero-title">
+      {t('hero.title.before')}<span class="accent">{t('hero.title.accent')}</span>{t('hero.title.after')}
+    </h1>
+    <p class="lead">{t('hero.lead')}</p>
+    <div class="cta-row">
+      <a class="btn btn-primary btn-lg" href={release.downloadPath} download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path>
+        </svg>
+        {t('hero.ctaDownload', { version: release.version })}
+      </a>
+      <a class="btn btn-ghost btn-lg" href={`${home}#install`}>{t('hero.ctaGuide')}</a>
+    </div>
+    <ul class="meta" aria-label={t('hero.requirements')}>
+      <li>{t('hero.req.macos', { min: release.minMacOS })}</li>
+      <li>{t('hero.req.cpu')}</li>
+      <li>{t('hero.req.format')}</li>
+    </ul>
+  </div>
+
+  <div class="marquee-wrap">
+    <input class="marquee-toggle sr-only" type="checkbox" id="marquee-pause" />
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        {
+          track.map((m) => (
+            <span class="marquee-item">
+              {m}
+              <span class="dot" />
+            </span>
+          ))
+        }
+      </div>
+    </div>
+    <label class="marquee-control" for="marquee-pause">
+      <span class="when-running">{t('hero.marquee.pause')}</span>
+      <span class="when-paused">{t('hero.marquee.resume')}</span>
+    </label>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: clamp(var(--space-16), 8vw, var(--space-30));
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  h1 {
+    max-width: 14ch;
+  }
+
+  .lead {
+    max-width: 38rem;
+    color: var(--ink-2);
+    font-size: var(--fs-lead);
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-2);
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .meta li {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-pill);
+    color: var(--ink-2);
+    font-size: var(--fs-small);
+    font-weight: 500;
+  }
+
+  .marquee-wrap {
+    position: relative;
+    margin-top: clamp(var(--space-16), 7vw, var(--space-24));
+  }
+
+  .marquee {
+    overflow: hidden;
+    background: var(--color-light-blue);
+    border-block: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    padding-inline-end: clamp(1.5rem, 3vw, 3rem);
+    padding-block: clamp(0.75rem, 1.5vw, 1.25rem);
+    color: var(--ink);
+    font-size: clamp(3rem, 1.5rem + 6vw, 8rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .marquee-item:nth-child(even) {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: -0.02em;
+  }
+
+  .dot {
+    width: 0.22em;
+    height: 0.22em;
+    border-radius: var(--radius-pill);
+    background: var(--color-amethyst);
+    border: 2px solid var(--ink);
+  }
+
+  .marquee-wrap:hover .marquee-track,
+  .marquee-toggle:checked ~ .marquee .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-control {
+    position: absolute;
+    right: var(--gutter);
+    bottom: calc(-1 * var(--space-10));
+    padding: var(--space-2) 0;
+    color: var(--ink-2);
+    font-size: var(--fs-small);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+
+  .marquee-control:hover {
+    color: var(--ink);
+  }
+
+  .marquee-toggle:focus-visible ~ .marquee-control {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  .when-paused,
+  .marquee-toggle:checked ~ .marquee-control .when-running {
+    display: none;
+  }
+
+  .marquee-toggle:checked ~ .marquee-control .when-paused {
+    display: inline;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+    .marquee-control {
+      display: none;
+    }
+  }
+</style>

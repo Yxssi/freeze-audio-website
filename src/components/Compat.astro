@@ -1,0 +1,123 @@
+---
+import { release } from '../site';
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+
+const yes = [
+  { label: t('compat.os'), value: t('compat.osValue', { min: release.minMacOS }) },
+  { label: t('compat.cpu'), value: t('compat.cpuValue') },
+  { label: t('compat.format'), value: t('compat.formatValue') },
+  { label: t('compat.tested'), value: t('compat.testedValue') },
+];
+---
+
+<section class="section" id="compat" aria-labelledby="compat-title">
+  <div class="container grid">
+    <div class="section-head">
+      <p class="eyebrow">{t('compat.eyebrow')}</p>
+      <h2 id="compat-title">
+        {t('compat.title.before')}<span class="accent">{t('compat.title.accent')}</span>
+      </h2>
+      <p>{t('compat.lead')}</p>
+    </div>
+
+    <div class="lists">
+      <ul class="list" aria-label={t('compat.yes')}>
+        {
+          yes.map((i) => (
+            <li>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="#a9d2d5" /><path d="m6 10.5 2.5 2.5L14 7.5" fill="none" stroke="#1a1620" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span><strong>{i.label}</strong> {i.value}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <ul class="list no" aria-label={t('compat.no')}>
+        <li>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#766c7f" stroke-width="2" /><path d="m7 7 6 6m0-6-6 6" stroke="#766c7f" stroke-width="2" stroke-linecap="round" /></svg>
+          <span><strong>{t('compat.unavailable')}</strong> {t('compat.unavailableValue')}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    gap: var(--space-10);
+  }
+
+  .grid > * {
+    min-width: 0;
+  }
+
+  @media (min-width: 64rem) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-24);
+      align-items: start;
+    }
+    .section-head {
+      margin-bottom: 0;
+    }
+  }
+
+  .lists {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .list {
+    margin: 0;
+    padding: var(--space-2) var(--space-6);
+    list-style: none;
+    background: var(--bg-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+  }
+
+  .list.no {
+    background: transparent;
+    border-style: dashed;
+    border-color: var(--border-strong);
+  }
+
+  li {
+    display: flex;
+    gap: var(--space-4);
+    align-items: flex-start;
+    padding-block: var(--space-4);
+  }
+
+  li + li {
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  svg {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15rem;
+  }
+
+  strong {
+    display: block;
+    font-weight: 600;
+  }
+
+  span {
+    color: var(--ink-2);
+  }
+
+  strong {
+    color: var(--ink);
+  }
+</style>

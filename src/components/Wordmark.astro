@@ -1,0 +1,38 @@
+---
+interface Props {
+  class?: string;
+  title?: string;
+}
+const { class: className, title } = Astro.props;
+---
+
+<svg
+  class:list={['wordmark', className]}
+  viewBox="0 0 236 80"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="13"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  role={title ? 'img' : undefined}
+  aria-hidden={title ? undefined : 'true'}
+  aria-label={title}
+>
+  <path d="M33 15c-3-6-15-8-17 3-1 5-1 22-1 48" />
+  <path d="M5 35c8-1 17-2 26-2" />
+  <path d="M44 34c0 11 1 22 0 32" />
+  <path d="M45 46c3-9 10-14 19-12" />
+  <path d="M71 49c10 1 20 0 30-2 1-10-7-17-16-17-10 0-17 9-17 19s7 18 17 18c6 0 11-3 14-7" />
+  <path transform="translate(38 1) rotate(-3 85 49)" d="M71 49c10 1 20 0 30-2 1-10-7-17-16-17-10 0-17 9-17 19s7 18 17 18c6 0 11-3 14-7" />
+  <path d="M146 34c9 0 18-1 26-1-8 11-17 22-26 32 10 0 19 0 28-1" />
+  <path transform="translate(113 0) rotate(2 85 49)" d="M71 49c10 1 20 0 30-2 1-10-7-17-16-17-10 0-17 9-17 19s7 18 17 18c6 0 11-3 14-7" />
+  <circle cx="227" cy="63" r="6.5" fill="var(--wordmark-dot, #947eb0)" stroke="none" />
+</svg>
+
+<style>
+  .wordmark {
+    height: 1em;
+    width: auto;
+    overflow: visible;
+  }
+</style>

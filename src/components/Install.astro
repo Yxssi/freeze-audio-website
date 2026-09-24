@@ -1,0 +1,95 @@
+---
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+const target = '~/Library/Audio/Plug-Ins/Components';
+---
+
+<section class="section install" id="install" aria-labelledby="install-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{t('install.eyebrow')}</p>
+      <h2 id="install-title">
+        {t('install.title.before')}<span class="accent">{t('install.title.accent')}</span>
+      </h2>
+    </div>
+
+    <ol class="steps">
+      <li>
+        <h3>{t('install.step1.title')}</h3>
+        <p>{t('install.step1.body')}</p>
+      </li>
+      <li>
+        <h3>{t('install.step2.title')}</h3>
+        <p>
+          {t('install.step2.body.before')}<code>{target}</code>{t('install.step2.body.after')}
+        </p>
+      </li>
+      <li>
+        <h3>{t('install.step3.title')}</h3>
+        <p>{t('install.step3.body')}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<style>
+  .install {
+    background: var(--bg-tint);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+  }
+
+  .steps li {
+    counter-increment: step;
+    padding: var(--space-8) var(--space-6);
+    background: var(--bg-raised);
+    border-radius: var(--radius-xl);
+  }
+
+  .steps li::before {
+    content: counter(step);
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-pill);
+    background: var(--color-amethyst);
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+    line-height: 1.3;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-2);
+  }
+
+  .steps p {
+    color: var(--ink-2);
+  }
+
+  code {
+    padding: 0.1em 0.35em;
+    background: var(--bg-lavender);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+</style>
