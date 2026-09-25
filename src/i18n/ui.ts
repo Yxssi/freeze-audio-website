@@ -10,15 +10,15 @@ export const defaultLang: Lang = 'en';
 export const ui = {
   en: {
     'meta.title':
-      'Freeze Audio by sheezy — Audio Unit reverse, freeze & granular effect for Mac',
+      "Freeze Audio by sheezy — Audio Unit reverse, stutter and time effect for Mac",
     'meta.description':
-      'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped or as a granular cloud. Audio Unit for macOS 12+, Apple Silicon and Intel.',
-    'meta.ogAlt': 'Freeze Audio by sheezy — plugin interface and tagline',
+      'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped, as a granular cloud or as a stutter, at 2× down to 1/16. Audio Unit for macOS 12+, Apple Silicon and Intel.',
+    'meta.ogAlt': "Freeze Audio by sheezy — plugin interface and tagline",
     'meta.skip': 'Skip to content',
     'meta.jsonLdSubCategory': 'Audio effect plugin',
     'meta.processor': 'Apple Silicon (arm64) or Intel (x86_64)',
 
-    'nav.home': 'Freeze Audio by sheezy — home',
+    'nav.home': "Freeze Audio by sheezy — home",
     'nav.download': 'Download',
     'nav.sections': 'Sections',
     'nav.engines': 'Engines',
@@ -31,7 +31,7 @@ export const ui = {
     'hero.title.accent': 'past',
     'hero.title.after': ' of your sound.',
     'hero.lead':
-      'Freeze keeps the last seconds of your track in memory and plays them back in reverse, frozen, slowed down, as a tape stop, or as a granular cloud.',
+      'Freeze keeps the last seconds of your track in memory and plays them back in reverse, frozen, slowed down, as a tape stop, as a granular cloud, or as a stutter. Each engine can run at 2×, 1×, 1/2, 1/4, 1/8, 1/12 or 1/16.',
     'hero.ctaDownload': 'Download Freeze {version}',
     'hero.ctaGuide': 'Install guide',
     'hero.requirements': 'Requirements',
@@ -43,48 +43,57 @@ export const ui = {
 
     'engines.eyebrow': 'How does it work ?',
     'engines.title.before': 'One buffer, ',
-    'engines.title.accent': 'five ways',
+    'engines.title.accent': 'six ways',
     'engines.title.after': ' to read it back.',
     'engines.lead':
-      'Freeze continuously records your signal. Each engine reads that past sound differently, and the FREEZE button re-captures the current fragment instantly.',
+      'Freeze continuously records your signal. Each engine reads that past sound differently. The time row sets the rate, and the FREEZE button re-captures the current fragment instantly.',
     'engines.reverse.body':
       'The recent past played backwards, looping continuously over the Size window.',
-    'engines.reverse.warp': 'Warp sets reverse speed (0.25× to 2.75×).',
+    'engines.reverse.warp': 'Warp sets reverse speed. Rate scales it from 2× down to 1/16.',
     'engines.freeze.body':
       'A captured fragment looped forever.',
-    'engines.freeze.warp': 'Warp sets sweep speed (0.25× to 1.5×).',
+    'engines.freeze.warp': 'Warp sets sweep speed. Rate scales the loop.',
     'engines.stretch.body':
       'The past crawls by in slow motion, stretched across your track.',
-    'engines.stretch.warp': 'Warp sets the slowdown (0.05× to 0.95×).',
+    'engines.stretch.warp': 'Warp sets the slowdown. Rate stretches it further.',
     'engines.tape.body':
       'Tape stop: playback decelerates, reverses, then accelerates again, cycle after cycle.',
-    'engines.tape.warp': 'Warp and Size set the cycle length.',
+    'engines.tape.warp': 'Warp and Size set the cycle. Rate shortens or lengthens it.',
     'engines.grain.body':
-      'Up to 8 windowed grains read backwards and scattered across the window.',
+      'Up to 6 windowed grains read backwards and scattered across the window.',
     'engines.grain.warp':
-      'Warp sets density (2 to 28 grains/s) and grain length.',
+      'Warp sets density and grain length. Rate scales how often grains appear.',
+    'engines.stutter.body':
+      'A short slice is captured and fired back in a burst, then a new slice is caught.',
+    'engines.stutter.warp':
+      'Warp sets the repeats (2 to 8) and how tightly each hit is gated. Rate divides the slice: 1/2 and 1/4 make a longer chop, 2× a tighter one.',
 
     'showcase.eyebrow': 'What does it look like ?',
     'showcase.title.before': 'Everything in ',
     'showcase.title.accent': 'a single frame.',
     'showcase.alt':
-      'Freeze plugin interface: mode strip with Reverse, Freeze (selected), Stretch, Tape and Grain; six knobs for Size, Warp, Feedback, Tone, Mix and Output; waveform scope and FREEZE button.',
+      "Freeze Audio by sheezy interface: mode strip with Reverse, Freeze, Stretch, Tape, Grain and Stutter (selected); time row at 1/4; six knobs; waveform scope with STOP and FREEZE.",
     'showcase.caption':
-      'Interface capture, Freeze mode selected (no input signal).',
+      'Interface capture, Stutter selected at 1/4 (no input signal).',
     'showcase.modes.title': 'Mode strip',
     'showcase.modes.body':
-      'All five engines just one click away, with the active mode highlighted.',
+      'All six engines one click away, with the active mode highlighted.',
+    'showcase.time.title': 'Time row',
+    'showcase.time.body':
+      '2×, 1×, 1/2, 1/4, 1/8, 1/12 and 1/16. The same rate drives every engine, including the stutter slice.',
     'showcase.knobs.title': 'Six knobs',
     'showcase.knobs.body':
       'Size, Warp, Feedback, Tone, Mix and Output. Double-click resets to the default value.',
     'showcase.scope.title': 'Live scope',
     'showcase.scope.body':
-      'The processed waveform is visible in real time, with the FREEZE button to re-capture the past.',
+      'The processed waveform in real time. STOP clears the sound without moving the knobs. FREEZE re-captures the past.',
 
     'controls.eyebrow': 'Parameters',
     'controls.title.before': 'Few controls, ',
     'controls.title.accent': 'but all useful.',
     'controls.size.body': 'Length of the past window the engine reads.',
+    'controls.rate.body':
+      'Playback rate shared by every engine: 2×, 1×, 1/2, 1/4, 1/8, 1/12 or 1/16.',
     'controls.warp.body': 'Speed modulation, unique to each engine.',
     'controls.feedback.body': 'Feeds the processed signal back into the buffer.',
     'controls.tone.body':
@@ -95,18 +104,20 @@ export const ui = {
     'controls.bypass.body': 'Bypasses the effect, automatable from the host.',
     'controls.freeze.body': 'Re-captures the current fragment instantly.',
     'controls.range.size': '0.05 – 8 s',
+    'controls.range.rate': '2× – 1/16',
     'controls.range.percent': '0 – 100 %',
     'controls.range.feedback': '0 – 95 %',
     'controls.range.tone': 'LP ← center → HP',
     'controls.range.gain': '± 24 dB',
     'controls.range.bool': 'on / off',
     'controls.range.button': 'button',
-    'controls.presets.title': '6 presets',
+    'controls.presets.title': '15 presets',
     'controls.presets.intro':
-      'A starting point for each engine, exposed to the host as Audio Unit factory presets.',
+      'A starting point for each engine, including three stutter settings, exposed to the host as Audio Unit factory presets.',
     'controls.presets.col.preset': 'Preset',
     'controls.presets.col.engine': 'Engine',
     'controls.presets.col.size': 'Size',
+    'controls.presets.col.rate': 'Rate',
     'controls.presets.col.mix': 'Mix',
     'controls.presets.size.1': '1.0 s',
     'controls.presets.size.2': '2.0 s',
@@ -143,7 +154,7 @@ export const ui = {
     'install.step2.body.after': ' then drop Freeze.component into it.',
     'install.step3.title': 'Relaunch your host',
     'install.step3.body':
-      'Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “Freeze Audio by sheezy”.',
+      "Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “Freeze Audio by sheezy”.",
 
     'compat.eyebrow': 'Compatibility',
     'compat.title.before': 'Built for ',
@@ -177,7 +188,7 @@ export const ui = {
       'Make sure Freeze.component is in ~/Library/Audio/Plug-Ins/Components, then relaunch the host or rescan plugins. In FL Studio, run a new scan from the plugin manager.',
     'faq.q4': 'Can parameters be automated?',
     'faq.a4':
-      'Yes. Mode, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass and Freeze are exposed to the host as Audio Unit parameters.',
+      'Yes. Mode, Rate, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass and Freeze are exposed to the host as Audio Unit parameters.',
     'faq.q5': 'How do I uninstall Freeze?',
     'faq.a5':
       'Delete Freeze.component from ~/Library/Audio/Plug-Ins/Components, then relaunch your host.',
@@ -191,15 +202,15 @@ export const ui = {
   },
   fr: {
     'meta.title':
-      'Freeze Audio by sheezy — effet Audio Unit reverse, freeze et granulaire pour Mac',
+      "Freeze Audio by sheezy — effet Audio Unit reverse, stutter et temps pour Mac",
     'meta.description':
-      'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire. Audio Unit pour macOS 12+, Apple Silicon et Intel.',
-    'meta.ogAlt': 'Freeze Audio by sheezy — interface du plugin et slogan',
+      'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande, en nuage granulaire ou en stutter, de 2× à 1/16. Audio Unit pour macOS 12+, Apple Silicon et Intel.',
+    'meta.ogAlt': "Freeze Audio by sheezy — interface du plugin et slogan",
     'meta.skip': 'Aller au contenu',
     'meta.jsonLdSubCategory': 'Plugin d’effet audio',
     'meta.processor': 'Apple Silicon (arm64) ou Intel (x86_64)',
 
-    'nav.home': 'Freeze Audio by sheezy — accueil',
+    'nav.home': "Freeze Audio by sheezy — accueil",
     'nav.download': 'Télécharger',
     'nav.sections': 'Sections',
     'nav.engines': 'Moteurs',
@@ -212,7 +223,7 @@ export const ui = {
     'hero.title.accent': 'passé',
     'hero.title.after': ' de votre son.',
     'hero.lead':
-      'Freeze garde en mémoire les dernières secondes de votre piste et les rejoue à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire.',
+      'Freeze garde en mémoire les dernières secondes de votre piste et les rejoue à l’envers, gelées, ralenties, en arrêt de bande, en nuage granulaire ou en stutter. Chaque moteur peut tourner en 2×, 1×, 1/2, 1/4, 1/8, 1/12 ou 1/16.',
     'hero.ctaDownload': 'Télécharger Freeze {version}',
     'hero.ctaGuide': 'Guide d’installation',
     'hero.requirements': 'Configuration requise',
@@ -224,49 +235,58 @@ export const ui = {
 
     'engines.eyebrow': 'Comment ça marche ?',
     'engines.title.before': 'Une mémoire tampon, ',
-    'engines.title.accent': 'cinq façons',
+    'engines.title.accent': 'six façons',
     'engines.title.after': ' de la relire.',
     'engines.lead':
-      'Freeze enregistre en continu votre signal. Chaque moteur relit ce passé autrement, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
+      'Freeze enregistre en continu votre signal. Chaque moteur relit ce passé autrement. La rangée de temps fixe la vitesse, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
     'engines.reverse.body':
       'Le passé proche lu à l’envers, en boucle continue sur la fenêtre Size.',
-    'engines.reverse.warp': 'Warp règle la vitesse de recul (0,25× à 2,75×).',
+    'engines.reverse.warp': 'Warp règle la vitesse de recul. Rate la décline de 2× jusqu’à 1/16.',
     'engines.freeze.body':
       'Un fragment capturé puis rejoué en ping-pong infini.',
-    'engines.freeze.warp': 'Warp règle la vitesse de balayage (0,25× à 1,5×).',
+    'engines.freeze.warp': 'Warp règle la vitesse de balayage. Rate étire la boucle.',
     'engines.stretch.body':
       'Le passé défile au ralenti, comme une version ralentie de votre piste.',
-    'engines.stretch.warp': 'Warp règle le ralenti (0,05× à 0,95×).',
+    'engines.stretch.warp': 'Warp règle le ralenti. Rate l’étire encore.',
     'engines.tape.body':
       'Arrêt de bande : la lecture décélère, s’inverse, puis ré-accélère, cycle après cycle.',
-    'engines.tape.warp': 'Warp et Size fixent la durée du cycle.',
+    'engines.tape.warp': 'Warp et Size fixent le cycle. Rate le raccourcit ou l’allonge.',
     'engines.grain.body':
-      'Jusqu’à 8 grains fenêtrés lus à l’envers, semés dans la fenêtre.',
+      'Jusqu’à 6 grains fenêtrés lus à l’envers, semés dans la fenêtre.',
     'engines.grain.warp':
-      'Warp règle la densité (2 à 28 grains/s) et la longueur des grains.',
+      'Warp règle la densité et la longueur des grains. Rate règle leur cadence.',
+    'engines.stutter.body':
+      'Un court fragment est capturé puis renvoyé en rafale, avant d’en attraper un nouveau.',
+    'engines.stutter.warp':
+      'Warp fixe le nombre de répétitions (2 à 8) et la fermeture du gate. Rate divise la tranche : 1/2 et 1/4 l’allongent, 2× la resserre.',
 
     'showcase.eyebrow': 'A quoi ça ressemble ?',
     'showcase.title.before': 'Toutes les fonctionnalités dans ',
     'showcase.title.accent': 'une seule fenêtre.',
     'showcase.alt':
-      'Interface du plugin Freeze : bandeau des modes Reverse, Freeze (sélectionné), Stretch, Tape et Grain ; six potentiomètres Size, Warp, Feedback, Tone, Mix et Output ; scope de forme d’onde et bouton FREEZE.',
+      "Interface Freeze Audio by sheezy : bandeau Reverse, Freeze, Stretch, Tape, Grain et Stutter (sélectionné) ; rangée de temps en 1/4 ; six potentiomètres ; scope avec STOP et FREEZE.",
     'showcase.caption':
-      'Capture de l’interface, mode Freeze sélectionné (sans signal en entrée).',
+      'Capture de l’interface, mode Stutter en 1/4 (sans signal en entrée).',
     'showcase.modes.title': 'Bandeau des modes',
     'showcase.modes.body':
-      'Les 5 moteurs à portée de clic, le mode actif est surligné.',
+      'Les 6 moteurs à portée de clic, le mode actif est surligné.',
+    'showcase.time.title': 'Rangée de temps',
+    'showcase.time.body':
+      '2×, 1×, 1/2, 1/4, 1/8, 1/12 et 1/16. La même vitesse pilote tous les moteurs, y compris la tranche du stutter.',
     'showcase.knobs.title': 'Six potentiomètres',
     'showcase.knobs.body':
       'Size, Warp, Feedback, Tone, Mix et Output. Double-clic : retour à la valeur par défaut.',
     'showcase.scope.title': 'Scope en direct',
     'showcase.scope.body':
-      'Visualisation de l\'onde du signal traité et du bouton FREEZE pour re-geler le passé.',
+      'Onde du signal traité en direct. STOP coupe le son sans bouger les knobs. FREEZE re-gèle le passé.',
 
     'controls.eyebrow': 'Paramètres',
     'controls.title.before': 'Peu de réglages, ',
     'controls.title.accent': 'mais tous utiles.',
     'controls.size.body':
       'Longueur de la fenêtre de passé relue par le moteur.',
+    'controls.rate.body':
+      'Vitesse de lecture commune à tous les moteurs : 2×, 1×, 1/2, 1/4, 1/8, 1/12 ou 1/16.',
     'controls.warp.body': 'Modulation de vitesse, propre à chaque moteur.',
     'controls.feedback.body':
       'Réinjecte le signal traité dans la mémoire tampon.',
@@ -280,18 +300,20 @@ export const ui = {
     'controls.freeze.body':
       'Re-gèle instantanément le fragment en cours.',
     'controls.range.size': '0,05 – 8 s',
+    'controls.range.rate': '2× – 1/16',
     'controls.range.percent': '0 – 100 %',
     'controls.range.feedback': '0 – 95 %',
     'controls.range.tone': 'LP ← centre → HP',
     'controls.range.gain': '± 24 dB',
     'controls.range.bool': 'on / off',
     'controls.range.button': 'bouton',
-    'controls.presets.title': '6 presets',
+    'controls.presets.title': '15 presets',
     'controls.presets.intro':
-      'Un point de départ pour chaque moteur, exposés à l’hôte comme presets factory Audio Unit.',
+      'Un point de départ pour chaque moteur, dont trois réglages de stutter, exposés à l’hôte comme presets factory Audio Unit.',
     'controls.presets.col.preset': 'Preset',
     'controls.presets.col.engine': 'Moteur',
     'controls.presets.col.size': 'Size',
+    'controls.presets.col.rate': 'Rate',
     'controls.presets.col.mix': 'Mix',
     'controls.presets.size.1': '1,0 s',
     'controls.presets.size.2': '2,0 s',
@@ -329,7 +351,7 @@ export const ui = {
       ' puis glissez-y Freeze.component.',
     'install.step3.title': 'Relancez votre hôte',
     'install.step3.body':
-      'Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « Freeze Audio by sheezy ».',
+      "Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « Freeze Audio by sheezy ».",
 
     'compat.eyebrow': 'Compatibilité',
     'compat.title.before': 'Pensé pour ',
@@ -363,7 +385,7 @@ export const ui = {
       'Vérifiez que Freeze.component se trouve bien dans ~/Library/Audio/Plug-Ins/Components, puis relancez l’hôte ou son scan des plugins. Dans FL Studio, lancez un nouveau scan depuis le gestionnaire de plugins.',
     'faq.q4': 'Les paramètres sont-ils automatisables ?',
     'faq.a4':
-      'Oui. Mode, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass et Freeze sont exposés à l’hôte comme paramètres Audio Unit.',
+      'Oui. Mode, Rate, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass et Freeze sont exposés à l’hôte comme paramètres Audio Unit.',
     'faq.q5': 'Comment désinstaller Freeze ?',
     'faq.a5':
       'Supprimez Freeze.component du dossier ~/Library/Audio/Plug-Ins/Components puis relancez votre hôte.',

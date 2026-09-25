@@ -11,6 +11,7 @@ const t = useTranslations(lang);
 
 const params = [
   { name: 'Size', range: t('controls.range.size'), body: t('controls.size.body') },
+  { name: 'Rate', range: t('controls.range.rate'), body: t('controls.rate.body') },
   { name: 'Warp', range: t('controls.range.percent'), body: t('controls.warp.body') },
   { name: 'Feedback', range: t('controls.range.feedback'), body: t('controls.feedback.body') },
   { name: 'Tone', range: t('controls.range.tone'), body: t('controls.tone.body') },
@@ -20,14 +21,30 @@ const params = [
   { name: 'FREEZE', range: t('controls.range.button'), body: t('controls.freeze.body') },
 ];
 
-const presets = [
-  { name: 'Init', mode: 'Reverse', size: t('controls.presets.size.1'), mix: t('controls.presets.mix.28') },
-  { name: 'Ghost Phrase', mode: 'Reverse', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.50') },
-  { name: 'Infinite Pad', mode: 'Freeze', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.80') },
-  { name: 'Slow Motion', mode: 'Stretch', size: t('controls.presets.size.3'), mix: t('controls.presets.mix.60') },
-  { name: 'Tape Stop Drama', mode: 'Tape Reverse', size: t('controls.presets.size.2'), mix: t('controls.presets.mix.55') },
-  { name: 'Reverse Cloud', mode: 'Grain Reverse', size: t('controls.presets.size.2_5'), mix: t('controls.presets.mix.68') },
+const presetRows = [
+  { name: 'Init', mode: 'Reverse', size: 1, mix: 32, rate: '1×' },
+  { name: 'Half Phrase', mode: 'Reverse', size: 1.6, mix: 40, rate: '1/2' },
+  { name: 'Soft Reverse', mode: 'Reverse', size: 2.2, mix: 36, rate: '1/2' },
+  { name: 'Soft Pad', mode: 'Freeze', size: 1.8, mix: 52, rate: '1×' },
+  { name: 'Glass Loop', mode: 'Freeze', size: 2.6, mix: 48, rate: '1×' },
+  { name: 'Slow Motion', mode: 'Stretch', size: 2.4, mix: 40, rate: '1×' },
+  { name: 'Dub Tail', mode: 'Stretch', size: 2, mix: 34, rate: '1×' },
+  { name: 'Tape Stop', mode: 'Tape', size: 1.4, mix: 42, rate: '1×' },
+  { name: 'Light Scratch', mode: 'Tape', size: 0.55, mix: 36, rate: '1×' },
+  { name: 'Soft Cloud', mode: 'Grain', size: 2.2, mix: 38, rate: '1×' },
+  { name: 'Grain Bed', mode: 'Grain', size: 3, mix: 34, rate: '1/2' },
+  { name: 'Wet Reverse', mode: 'Reverse', size: 1.3, mix: 70, rate: '1×' },
+  { name: 'Soft Stutter', mode: 'Stutter', size: 0.16, mix: 46, rate: '1×' },
+  { name: 'Half Repeat', mode: 'Stutter', size: 0.2, mix: 40, rate: '1/2' },
+  { name: 'Tight Chop', mode: 'Stutter', size: 0.07, mix: 50, rate: '1×' },
 ];
+
+const dec = lang === 'fr' ? ',' : '.';
+const presets = presetRows.map((p) => ({
+  ...p,
+  size: `${p.size.toFixed(2).replace('.', dec)} s`,
+  mix: `${p.mix} %`,
+}));
 ---
 
 <section class="section" id="controls" aria-labelledby="controls-title">
@@ -63,6 +80,7 @@ const presets = [
               <th scope="col">{t('controls.presets.col.preset')}</th>
               <th scope="col">{t('controls.presets.col.engine')}</th>
               <th scope="col">{t('controls.presets.col.size')}</th>
+              <th scope="col">{t('controls.presets.col.rate')}</th>
               <th scope="col">{t('controls.presets.col.mix')}</th>
             </tr>
           </thead>
@@ -73,6 +91,7 @@ const presets = [
                   <th scope="row">{p.name}</th>
                   <td>{p.mode}</td>
                   <td>{p.size}</td>
+                  <td>{p.rate}</td>
                   <td>{p.mix}</td>
                 </tr>
               ))
