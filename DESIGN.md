@@ -1,4 +1,4 @@
-# DESIGN — freezy by ye' miyake
+# DESIGN — Freeze Audio by sheezy
 
 ## Direction donnée (référence, telle que fournie)
 

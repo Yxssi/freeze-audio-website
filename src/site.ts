@@ -4,8 +4,8 @@
 
 export const site = {
   url: 'https://example.com',
-  name: "freezy by ye' miyake",
-  author: "ye' miyake",
+  name: 'Freeze Audio by sheezy',
+  author: 'sheezy',
 } as const;
 
 export const release = {

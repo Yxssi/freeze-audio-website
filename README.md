@@ -1,4 +1,4 @@
-# freezy by ye' miyake — download site
+# Freeze Audio by sheezy — download site
 
 Static landing page (Astro, zero client JS) for the Freeze Audio Unit plugin.
 

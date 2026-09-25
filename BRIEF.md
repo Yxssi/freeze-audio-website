@@ -2,7 +2,7 @@
 
 ## Nom du plugin
 
-**freezy by ye' miyake** — « Time Effector ». Audio Unit v2 (`aufx`) pour macOS, version 1.0.0.
+**Freeze Audio by sheezy** — « Time Effector ». Audio Unit v2 (`aufx`) pour macOS, version 1.0.0.
 
 ## À quoi il sert
 

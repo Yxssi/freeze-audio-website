@@ -10,15 +10,15 @@ export const defaultLang: Lang = 'en';
 export const ui = {
   en: {
     'meta.title':
-      "freezy by ye' miyake — Audio Unit reverse, stutter and time effect for Mac",
+      "Freeze Audio by sheezy — Audio Unit reverse, stutter and time effect for Mac",
     'meta.description':
       'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped, as a granular cloud or as a stutter, at 2× down to 1/16. Audio Unit for macOS 12+, Apple Silicon and Intel.',
-    'meta.ogAlt': "freezy by ye' miyake — plugin interface and tagline",
+    'meta.ogAlt': "Freeze Audio by sheezy — plugin interface and tagline",
     'meta.skip': 'Skip to content',
     'meta.jsonLdSubCategory': 'Audio effect plugin',
     'meta.processor': 'Apple Silicon (arm64) or Intel (x86_64)',
 
-    'nav.home': "freezy by ye' miyake — home",
+    'nav.home': "Freeze Audio by sheezy — home",
     'nav.download': 'Download',
     'nav.sections': 'Sections',
     'nav.engines': 'Engines',
@@ -72,7 +72,7 @@ export const ui = {
     'showcase.title.before': 'Everything in ',
     'showcase.title.accent': 'a single frame.',
     'showcase.alt':
-      "freezy by ye' miyake interface: mode strip with Reverse, Freeze, Stretch, Tape, Grain and Stutter (selected); time row at 1/4; six knobs; waveform scope with STOP and FREEZE.",
+      "Freeze Audio by sheezy interface: mode strip with Reverse, Freeze, Stretch, Tape, Grain and Stutter (selected); time row at 1/4; six knobs; waveform scope with STOP and FREEZE.",
     'showcase.caption':
       'Interface capture, Stutter selected at 1/4 (no input signal).',
     'showcase.modes.title': 'Mode strip',
@@ -154,7 +154,7 @@ export const ui = {
     'install.step2.body.after': ' then drop Freeze.component into it.',
     'install.step3.title': 'Relaunch your host',
     'install.step3.body':
-      "Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “freezy by ye' miyake”.",
+      "Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “Freeze Audio by sheezy”.",
 
     'compat.eyebrow': 'Compatibility',
     'compat.title.before': 'Built for ',
@@ -202,15 +202,15 @@ export const ui = {
   },
   fr: {
     'meta.title':
-      "freezy by ye' miyake — effet Audio Unit reverse, stutter et temps pour Mac",
+      "Freeze Audio by sheezy — effet Audio Unit reverse, stutter et temps pour Mac",
     'meta.description':
       'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande, en nuage granulaire ou en stutter, de 2× à 1/16. Audio Unit pour macOS 12+, Apple Silicon et Intel.',
-    'meta.ogAlt': "freezy by ye' miyake — interface du plugin et slogan",
+    'meta.ogAlt': "Freeze Audio by sheezy — interface du plugin et slogan",
     'meta.skip': 'Aller au contenu',
     'meta.jsonLdSubCategory': 'Plugin d’effet audio',
     'meta.processor': 'Apple Silicon (arm64) ou Intel (x86_64)',
 
-    'nav.home': "freezy by ye' miyake — accueil",
+    'nav.home': "Freeze Audio by sheezy — accueil",
     'nav.download': 'Télécharger',
     'nav.sections': 'Sections',
     'nav.engines': 'Moteurs',
@@ -264,7 +264,7 @@ export const ui = {
     'showcase.title.before': 'Toutes les fonctionnalités dans ',
     'showcase.title.accent': 'une seule fenêtre.',
     'showcase.alt':
-      "Interface freezy by ye' miyake : bandeau Reverse, Freeze, Stretch, Tape, Grain et Stutter (sélectionné) ; rangée de temps en 1/4 ; six potentiomètres ; scope avec STOP et FREEZE.",
+      "Interface Freeze Audio by sheezy : bandeau Reverse, Freeze, Stretch, Tape, Grain et Stutter (sélectionné) ; rangée de temps en 1/4 ; six potentiomètres ; scope avec STOP et FREEZE.",
     'showcase.caption':
       'Capture de l’interface, mode Stutter en 1/4 (sans signal en entrée).',
     'showcase.modes.title': 'Bandeau des modes',
@@ -351,7 +351,7 @@ export const ui = {
       ' puis glissez-y Freeze.component.',
     'install.step3.title': 'Relancez votre hôte',
     'install.step3.body':
-      "Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « freezy by ye' miyake ».",
+      "Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « Freeze Audio by sheezy ».",
 
     'compat.eyebrow': 'Compatibilité',
     'compat.title.before': 'Pensé pour ',

@@ -32,7 +32,7 @@ for (let i = 0; i <= 200; i++) {
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#f6f5fa"/>
   <g transform="translate(72 64) scale(1.3)">${wordmark}</g>
-  <text x="72" y="220" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" font-weight="500" fill="#5e4a7a">freezy by ye' miyake</text>
+  <text x="72" y="220" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" font-weight="500" fill="#5e4a7a">Freeze Audio by sheezy</text>
   <text x="72" y="286" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="58" font-weight="600" letter-spacing="-2.2" fill="#1a1620">Rejouez le passé</text>
   <text x="72" y="354" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="58" font-weight="600" letter-spacing="-2.2" fill="#1a1620">de votre son.</text>
   <text x="72" y="418" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="22" font-weight="500" fill="#4a4254">Audio Unit · macOS 12+ · Apple Silicon &amp; Intel</text>
