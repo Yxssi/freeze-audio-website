@@ -2,7 +2,7 @@
 
 ## Nom du plugin
 
-**Freeze Audio by sheezy** — « Time Effector ». Audio Unit v2 (`aufx`) pour macOS, version 1.0.0.
+**freezy by ye' miyake** — « Time Effector ». Audio Unit v2 (`aufx`) pour macOS, version 1.0.0.
 
 ## À quoi il sert
 
@@ -10,10 +10,11 @@ Freeze enregistre en continu le passé récent de votre piste dans une mémoire 
 
 ## Fonctionnalités principales
 
-- **5 moteurs de lecture** : Reverse, Freeze (boucle ping-pong gelée), Stretch (ralenti), Tape Reverse (tape-stop / inversion), Grain Reverse (nuage granulaire inversé).
-- **Bouton FREEZE** : re-gèle instantanément le fragment en cours.
-- **Contrôles de mise en forme** : Size (0,05 à 8 s), Warp, Feedback, Tone (filtre tilt passe-bas ↔ passe-haut), Mix, gain d'entrée et de sortie (±24 dB), Bypass.
-- **6 presets factory** : Init, Ghost Phrase, Infinite Pad, Slow Motion, Tape Stop Drama, Reverse Cloud.
+- **6 moteurs de lecture** : Reverse, Freeze (boucle ping-pong gelée), Stretch (ralenti), Tape Reverse (tape-stop / inversion), Grain Reverse (nuage granulaire inversé), Stutter (fragment court rejoué en rafale).
+- **Rangée de temps** : 2×, 1×, 1/2, 1/4, 1/8, 1/12, 1/16. La même vitesse pilote tous les moteurs.
+- **Bouton FREEZE** : re-gèle instantanément le fragment en cours. **STOP** coupe le son sans bouger les knobs.
+- **Contrôles de mise en forme** : Size (0,05 à 8 s), Rate, Warp, Feedback, Tone (filtre tilt passe-bas ↔ passe-haut), Mix, gain d'entrée et de sortie (±24 dB), Bypass.
+- **15 presets factory**, dont Soft Stutter, Half Repeat et Tight Chop.
 - **Interface sombre dédiée** : knobs, bandeau de modes et scope avec forme d'onde en direct.
 
 ## Public cible

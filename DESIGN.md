@@ -1,4 +1,4 @@
-# DESIGN — Freeze Audio by sheezy
+# DESIGN — freezy by ye' miyake
 
 ## Direction donnée (référence, telle que fournie)
 
@@ -41,7 +41,7 @@ La structure North (Marquee Hero, typo, espacements, rayons, air) est conservée
   - Grey Olive : réservé aux surfaces/traits neutres (non utilisé en texte).
   - Dusty Lavender : bordure des composants interactifs (bouton secondaire) ; base des neutres foncés dérivés.
 - **Section sombre** (interface + footer) : Dusty Lavender assombri (`--bg-dark`).
-- **Visuel du plugin** : capture réelle de l'UI rebuildée à la nouvelle palette (`src/assets/freeze-ui.png`, rendue par le harness `freeze/tools/dsp-test/test_ui.mm`), servie en WebP responsive via `astro:assets`.
+- **Visuel du plugin** : capture réelle de l'UI (`src/assets/freeze-ui.png`, Stutter sélectionné en 1/4, rendue par le harness `freeze/tools/dsp-test/test_ui.mm`), servie en WebP responsive via `astro:assets`. Le marquee défile les 6 modes, dont Stutter.
 
 ## Tokens dérivés et contrastes (WCAG 2.2)
 

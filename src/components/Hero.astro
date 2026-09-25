@@ -11,7 +11,7 @@ import {
 const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
 const t = useTranslations(lang);
 const home = homePath(lang);
-const modes = ['Reverse', 'Freeze', 'Stretch', 'Tape', 'Grain'];
+const modes = ['Reverse', 'Freeze', 'Stretch', 'Tape', 'Grain', 'Stutter'];
 const track = [...modes, ...modes, ...modes, ...modes];
 ---
 
