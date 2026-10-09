@@ -23,7 +23,7 @@
 |---|---|---|---|---|
 | 1 | cro-methodology | done | METRICS.md, WEBSITE.md, EXPERIMENTS.md | 2026-10-09 |
 | 2 | ux-heuristics | done | DESIGN.md, EXPERIMENTS.md | 2026-10-09 |
-| 3 | refactoring-ui | pending | DESIGN.md, EXPERIMENTS.md | |
+| 3 | refactoring-ui | done | DESIGN.md, EXPERIMENTS.md | 2026-10-09 |
 | 4 | web-typography | pending | DESIGN.md, EXPERIMENTS.md | |
 | 5 | storybrand-messaging | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 | |
 | 6 | high-perf-browser | pending | METRICS.md, WEBSITE.md, EXPERIMENTS.md | |
@@ -50,6 +50,9 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 | 2026-10-09 | 5 | Internal problem = "the moment dies in the workaround" — the workaround kills the idea before you hear it | The emotional driver; copy leans on "while it's still alive" / "no bounces, no clip editing" |
 | 2026-10-09 | 5 | "Time Effector" dropped everywhere (U5): hero eyebrow now "Free Audio Unit plugin for macOS · v1.0.0"; JSON-LD alternateName → "Freeze" | Invented jargon cost comprehension; producers don't scan for it |
 | 2026-10-09 | 5 | "Free" stated at hero CTA, download CTA, meta description, and eyebrow (F5) | Phase 1 decision executed — Price objection now countered on-page |
+| 2026-10-09 | 3 | Card headings: **two tiers kept as deliberate hierarchy** (feature cards vs supporting cards) but both made fluid (`--fs-h3-card-lg` / `--fs-h3-card`) | Unify-to-one-token rejected: Engines/Controls cards are feature-level, Install/Showcase supporting; fixed sizes broke the ramp |
+| 2026-10-09 | 3 | All three findings (V1-V3) shipped in-system; no new palette work — grayscale reads and contrast is verified | Audit scored 9/10; color adds nothing until layout works, and it already does |
+| 2026-10-09 | 3 | Marquee (8rem, ~1.5× H1) recorded as **deliberate** signature moment (V4) | North-reference structure; aria-hidden, below the fold, 10.91:1 contrast |
 
 ## Phase 1 findings that change the later plan
 
@@ -63,6 +66,7 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 - [x] Phase 1 exit decisions: CTA=Download+"Free" · attack order A · heuristic evidence accepted — 2026-10-09
 - [x] Phase 2 done: heuristic evaluation scored 5/10; U1-U7 found; fix package (U1, U2, U3, U4, U6, U7) shipped — 2026-10-09
 - [x] Phase 5 done: hero rewritten (concrete descriptive), one-liner A chosen, internal problem = "the moment dies in the workaround", "Time Effector" dropped everywhere, "Free" at CTAs + meta — 2026-10-09
+- [x] Phase 3 done: refactoring-ui audit scored 9/10; V1-V3 shipped (fluid card-heading tokens, 44px lang targets, off-scale strays), V4 marquee recorded as deliberate — 2026-10-09
 - [ ] In parallel: restore Compat + FAQ components (F3/F4, uncomment source) and add Gatekeeper block (F1) — copy work, no methodology dependency
 - [ ] Before Phase 6: domain decision unblocks F8 (`site.url`); commission demo audio (F2) and beta quotes (F7)
 - [ ] Phase 4/6 exit: confirm skip from measured baselines

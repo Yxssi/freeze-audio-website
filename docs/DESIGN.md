@@ -12,15 +12,28 @@ Owned by Phase 4 (web-typography). Baseline from Phase 1: body 16px / lh 1.5 / f
 
 ## Tokens
 
-Source of truth: root `DESIGN.md` (palette shades, tinted grays, contrast pairs with WCAG ratios). Phase 3 (refactoring-ui) will extend this section with any spacing-scale or shadow corrections found.
+Source of truth: root `DESIGN.md` (palette shades, tinted grays, contrast pairs with WCAG ratios). Phase 3 (refactoring-ui) audit, 2026-10-09 — **score 9/10**, 7/8 diagnostic rows pass (grayscale hierarchy ✓, white space ✓, labels de-emphasized ✓, contrast ✓, shadows ✓). Fixes shipped in-system:
+
+| Token / rule | Decision | Status |
+|---|---|---|
+| Spacing scale | Fully tokenized (4px base: 8/12/16/24/32/40/48/56/64/96/120/160) — verified, no arbitrary spacing anywhere | healthy |
+| Palette | 5 source tones + derived neutrals, grays tinted (not pure), darkest `#1A1620` not `#000` — every text/bg pair measured AA in root DESIGN.md | healthy |
+| Type ramp | Fluid clamps h1/h2/h3/lead confirmed; **two-tier card headings added as fluid tokens** (Phase 3 V1 decision — kept two tiers, made fluid): `--fs-h3-card-lg` (1.5→1.75rem, Engines + Controls feature cards) and `--fs-h3-card` (1.25→1.375rem, Install steps + Showcase features) | fixed 2026-10-09 |
+| Off-scale strays | `.lang` gap 0.35→0.5rem (V3); `.facts dt` 13px → `var(--fs-small)` 14px (V3) | fixed 2026-10-09 |
+| Shadows | Exactly two on the page, both purposeful: Download card raised, plugin shot floating on dark — no change | healthy |
+| Marquee display size (up to 8rem, ~1.5× H1) | **Deliberate** (V4): North-reference signature moment, `aria-hidden`, below the conversion fold, 10.91:1 contrast — kept | recorded |
 
 ## Components
 
 | Component | Decision | Status |
 |---|---|---|
-| Nav | Section links restored on mobile (2-row layout below 48rem) — Phase 2 U3 decision | pending (Phase 3 reviews layout) |
+| Nav | Section links restored on mobile (2-row layout below 48rem) — Phase 2 U3 decision | fixed 2026-10-09 |
+| Nav — language switch | Tap targets raised to 44px equivalent: `min-height: 2.75rem`, inline-flex centered (Phase 3 V2 — was ~26-30px, the smallest target on the page on phones) | fixed 2026-10-09 |
 | Hero marquee | Keyboard-operable pause toggle; `prefers-reduced-motion` stops animation and hides the control | healthy — no change |
 | Engine cards | Renamed "Tape Reverse"→"Tape", "Grain Reverse"→"Grain" to match the plugin's mode strip — Phase 2 U1 decision | fixed 2026-10-09 |
+| Card headings (Engines, Install steps, Showcase features, Controls presets) | Two-tier hierarchy kept as deliberate (feature vs supporting cards); both tiers now fluid `--fs-h3-card-lg` / `--fs-h3-card` (Phase 3 V1) | fixed 2026-10-09 |
+| Download facts list | Labels on the scale (`--fs-small`), uppercase, ink-3 — values emphasized | healthy |
+| Buttons | Two-tier hierarchy verified: primary filled (Amethyst, 4.98:1) / ghost outlined (Dusty Lavender border, 4.59:1); one filled CTA visible per viewport | healthy |
 | Preset table | Engine column aligned to "Tape"/"Grain" (same U1 decision) | fixed 2026-10-09 |
 | Footer CTA | Label gains product name ("Download Freeze {version}") — Phase 2 U7 | fixed 2026-10-09 |
 
