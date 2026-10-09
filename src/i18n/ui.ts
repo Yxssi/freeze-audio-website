@@ -12,7 +12,7 @@ export const ui = {
     'meta.title':
       'Freeze Audio by sheezy — Audio Unit reverse, freeze & granular effect for Mac',
     'meta.description':
-      'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped or as a granular cloud. Audio Unit for macOS 12+, Apple Silicon and Intel.',
+      'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped or as a granular cloud. Free Audio Unit for macOS 12+, Apple Silicon and Intel.',
     'meta.ogAlt': 'Freeze Audio by sheezy — plugin interface and tagline',
     'meta.skip': 'Skip to content',
     'meta.jsonLdSubCategory': 'Audio effect plugin',
@@ -26,13 +26,13 @@ export const ui = {
     'nav.faq': 'FAQ',
     'nav.lang': 'Language',
 
-    'hero.eyebrow': 'Time Effector · Audio Unit for Mac',
+    'hero.eyebrow': 'Free Audio Unit plugin for macOS · v1.0.0',
     'hero.title.before': 'Replay the ',
-    'hero.title.accent': 'past',
-    'hero.title.after': ' of your sound.',
+    'hero.title.accent': 'last seconds',
+    'hero.title.after': ' of your track — backwards, frozen, slowed.',
     'hero.lead':
-      'Freeze keeps the last seconds of your track in memory and plays them back in reverse, frozen, slowed down, as a tape stop, or as a granular cloud.',
-    'hero.ctaDownload': 'Download Freeze {version}',
+      'Freeze keeps a rolling memory of your signal and turns it into reverse swells, frozen pads, tape stops and granular clouds — live, in your host. No bounces, no clip editing, no effect chain.',
+    'hero.ctaDownload': 'Download Freeze {version} — Free',
     'hero.ctaGuide': 'Install guide',
     'hero.requirements': 'Requirements',
     'hero.req.macos': 'macOS {min} or later',
@@ -41,7 +41,7 @@ export const ui = {
     'hero.marquee.pause': 'Pause scrolling',
     'hero.marquee.resume': 'Resume scrolling',
 
-    'engines.eyebrow': 'How does it work ?',
+    'engines.eyebrow': 'How does it work?',
     'engines.title.before': 'One buffer, ',
     'engines.title.accent': 'five ways',
     'engines.title.after': ' to read it back.',
@@ -51,7 +51,7 @@ export const ui = {
       'The recent past played backwards, looping continuously over the Size window.',
     'engines.reverse.warp': 'Warp sets reverse speed (0.25× to 2.75×).',
     'engines.freeze.body':
-      'A captured fragment looped forever.',
+      'A captured fragment replayed in an infinite ping-pong loop.',
     'engines.freeze.warp': 'Warp sets sweep speed (0.25× to 1.5×).',
     'engines.stretch.body':
       'The past crawls by in slow motion, stretched across your track.',
@@ -64,7 +64,7 @@ export const ui = {
     'engines.grain.warp':
       'Warp sets density (2 to 28 grains/s) and grain length.',
 
-    'showcase.eyebrow': 'What does it look like ?',
+    'showcase.eyebrow': 'What does it look like?',
     'showcase.title.before': 'Everything in ',
     'showcase.title.accent': 'a single frame.',
     'showcase.alt':
@@ -124,19 +124,19 @@ export const ui = {
     'download.title.accent': 'for macOS.',
     'download.lead':
       'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel.',
-    'download.cta': 'Download the .zip ({size} KB)',
+    'download.cta': 'Download the .zip ({size} KB) — Free',
     'download.file': 'File',
     'download.version': 'Version',
     'download.system': 'System',
     'download.sha': 'SHA-256',
     'download.systemValue': 'macOS {min}+',
 
-    'install.eyebrow': 'How to install ?',
+    'install.eyebrow': 'How to install?',
     'install.title.before': 'Installed in ',
     'install.title.accent': 'three steps.',
     'install.step1.title': 'Unzip the archive',
     'install.step1.body':
-      'Double-click FreezeAudio-1.0.0-macOS.zip: you get Freeze.component.',
+      'Double-click {file}: you get Freeze.component.',
     'install.step2.title': 'Copy the plugin',
     'install.step2.body.before':
       'In Finder, choose Go › Go to Folder…, paste ',
@@ -183,7 +183,7 @@ export const ui = {
       'Delete Freeze.component from ~/Library/Audio/Plug-Ins/Components, then relaunch your host.',
 
     'footer.nav': 'Footer links',
-    'footer.download': 'Download {version}',
+    'footer.download': 'Download Freeze {version}',
     'footer.install': 'Install',
     'footer.compat': 'Compatibility',
     'footer.faq': 'FAQ',
@@ -193,7 +193,7 @@ export const ui = {
     'meta.title':
       'Freeze Audio by sheezy — effet Audio Unit reverse, freeze et granulaire pour Mac',
     'meta.description':
-      'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire. Audio Unit pour macOS 12+, Apple Silicon et Intel.',
+      'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire. Plugin Audio Unit gratuit pour macOS 12+, Apple Silicon et Intel.',
     'meta.ogAlt': 'Freeze Audio by sheezy — interface du plugin et slogan',
     'meta.skip': 'Aller au contenu',
     'meta.jsonLdSubCategory': 'Plugin d’effet audio',
@@ -207,13 +207,13 @@ export const ui = {
     'nav.faq': 'FAQ',
     'nav.lang': 'Langue',
 
-    'hero.eyebrow': 'Time Effector · Audio Unit pour Mac',
-    'hero.title.before': 'Rejouez le ',
-    'hero.title.accent': 'passé',
-    'hero.title.after': ' de votre son.',
+    'hero.eyebrow': 'Plugin Audio Unit gratuit pour macOS · v1.0.0',
+    'hero.title.before': 'Rejouez les ',
+    'hero.title.accent': 'dernières secondes',
+    'hero.title.after': ' de votre piste — à l’envers, gelées, ralenties.',
     'hero.lead':
-      'Freeze garde en mémoire les dernières secondes de votre piste et les rejoue à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire.',
-    'hero.ctaDownload': 'Télécharger Freeze {version}',
+      'Freeze garde en mémoire la fin de votre signal et la transforme en nappes inversées, en gel, en arrêts de bande et en nuages granulaires — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
+    'hero.ctaDownload': 'Télécharger Freeze {version} — Gratuit',
     'hero.ctaGuide': 'Guide d’installation',
     'hero.requirements': 'Configuration requise',
     'hero.req.macos': 'macOS {min} ou plus récent',
@@ -309,7 +309,7 @@ export const ui = {
     'download.title.accent': 'pour macOS.',
     'download.lead':
       'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel.',
-    'download.cta': 'Télécharger le .zip ({size} Ko)',
+    'download.cta': 'Télécharger le .zip ({size} Ko) — Gratuit',
     'download.file': 'Fichier',
     'download.version': 'Version',
     'download.system': 'Système',
@@ -321,7 +321,7 @@ export const ui = {
     'install.title.accent': 'trois étapes.',
     'install.step1.title': 'Décompressez l’archive',
     'install.step1.body':
-      'Double-cliquez sur FreezeAudio-1.0.0-macOS.zip : vous obtenez Freeze.component.',
+      'Double-cliquez sur {file} : vous obtenez Freeze.component.',
     'install.step2.title': 'Copiez le plugin',
     'install.step2.body.before':
       'Dans le Finder, menu Aller › Aller au dossier…, collez ',
