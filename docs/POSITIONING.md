@@ -30,16 +30,39 @@ Score after Phase 5 rewrites: 5-second test ✓ · customer-as-hero ✓ (desire/
 
 Formula: [problem: manual editing] + [solution: rolling memory, five engines] + [result: live transitions]. Use in: meta-description direction, launch copy, store/social bios, future "About" copy. FR launch usage: derive from it, don't translate word-for-word.
 
+## Commander's Intent (Phase 7, confirmed 2026-10-09)
+
+**If a visitor remembers ONE thing:**
+
+> **Freeze replays what your track just played — backwards, frozen, or slowed.**
+
+The compass for every future surface (launch post, store listing, demo caption). The hero H1 is its on-page expression; anything that contradicts it doesn't ship.
+
 ## Key Messages
 
 | Surface | Message | Status |
 |---|---|---|
 | Hero eyebrow | "Free Audio Unit plugin for macOS · v1.0.0" — states price (Free), format, platform; replaces "Time Effector" (U5: dropped everywhere) | shipped 2026-10-09 |
 | Hero H1 | "Replay the **last seconds** of your track — backwards, frozen, slowed." | shipped 2026-10-09 |
-| Hero lead | Rolling-memory promise + villain named: "No bounces, no clip editing, no effect chain." | shipped 2026-10-09 |
+| Hero lead | Loss frame felt + real number: "The sound you just heard is already behind the playhead. Freeze keeps the **last 8 seconds** of your signal in memory…" | shipped 2026-10-09 (Phase 7) |
 | Hero CTA | "Download Freeze 1.0.0 — Free" (F5: Free at the CTA) | shipped 2026-10-09 |
-| Download-section CTA | "Download the .zip (219 KB) — Free" | shipped 2026-10-09 |
+| Download-section lead | Testable human-scale credential: "About a second to download, about two minutes to your first reverse." | shipped 2026-10-09 (Phase 7) |
+| Engines lead | Usage micro-story first (inverted pyramid): "Catch the tail of a vocal: hit FREEZE, and it hangs there as a pad." | shipped 2026-10-09 (Phase 7) |
 | Nav / footer CTA | "Download" / "Download Freeze 1.0.0" — short labels stay plain; Free already stated at hero + download section | shipped 2026-10-09 |
 | Meta description (EN/FR) | One-liner direction + "Free Audio Unit" stated | shipped 2026-10-09 |
-| Engines section | Existing copy is concrete and engine-accurate (ping-pong corrected in Phase 2) — unchanged in Phase 5 | healthy |
-| Future launch copy (social, store) | One-liner + internal problem as the hook | pending — post-launch |
+| Future launch copy (social, store) | Commander's Intent + internal problem as the hook | pending — post-launch |
+
+## SUCCESs Scores (Phase 7, made-to-stick)
+
+**Before Phase 7: 33/60 (band 4-6, forgettable). After: 46/60 (band 7-8, strong).** Remaining points need real assets, not copy: stories (demo audio F2, real quotes F7) and external credibility.
+
+| Trait | Before | After | What moved |
+|---|---|---|---|
+| Simple | 8 | 9 | Commander's Intent named (option a, 11 words); it generates every future surface |
+| Unexpected | 4 | 7 | "About a second to download, about two minutes to your first reverse" — no other plugin can say it, and it's testable |
+| Concrete | 7 | 9 | "Last seconds" → **the last 8 seconds** (the real buffer window); 219 KB / 1 s / 2 min human-scale |
+| Credible | 6 | 8 | Testable credential added; auval remains jargon-y — plain-language framing ("passed Apple's own validation") ships with the FAQ/Compat restore |
+| Emotional | 5 | 7 | Loss frame opens the hero lead: "The sound you just heard is already behind the playhead." |
+| Stories | 3 | 6 | Honest usage micro-story (vocal tail → FREEZE → pad) — real customer stories await F2/F7; no fabricated testimonials |
+
+Rejected as dishonest: "smaller than a screenshot of the plugin" — verified false (screenshot source 74 KB < zip 224 KB). All sticky claims must stay verifiable.

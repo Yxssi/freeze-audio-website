@@ -31,7 +31,7 @@ export const ui = {
     'hero.title.accent': 'last seconds',
     'hero.title.after': ' of your track — backwards, frozen, slowed.',
     'hero.lead':
-      'Freeze keeps a rolling memory of your signal and turns it into reverse swells, frozen pads, tape stops and granular clouds — live, in your host. No bounces, no clip editing, no effect chain.',
+      'The sound you just heard is already behind the playhead. Freeze keeps the last 8 seconds of your signal in memory and turns them into reverse swells, frozen pads, tape stops and granular clouds — live, in your host. No bounces, no clip editing, no effect chain.',
     'hero.ctaDownload': 'Download Freeze {version} — Free',
     'hero.ctaGuide': 'Install guide',
     'hero.requirements': 'Requirements',
@@ -46,7 +46,7 @@ export const ui = {
     'engines.title.accent': 'five ways',
     'engines.title.after': ' to read it back.',
     'engines.lead':
-      'Freeze continuously records your signal. Each engine reads that past sound differently, and the FREEZE button re-captures the current fragment instantly.',
+      'Catch the tail of a vocal: hit FREEZE, and it hangs there as a pad. Freeze continuously records your signal — each engine replays that past differently, and the FREEZE button re-captures the current fragment instantly.',
     'engines.reverse.body':
       'The recent past played backwards, looping continuously over the Size window.',
     'engines.reverse.warp': 'Warp sets reverse speed (0.25× to 2.75×).',
@@ -123,7 +123,7 @@ export const ui = {
     'download.title.before': 'Freeze {version} ',
     'download.title.accent': 'for macOS.',
     'download.lead':
-      'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel.',
+      'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel. About a second to download, about two minutes to your first reverse.',
     'download.cta': 'Download the .zip ({size} KB) — Free',
     'download.file': 'File',
     'download.version': 'Version',
@@ -212,7 +212,7 @@ export const ui = {
     'hero.title.accent': 'dernières secondes',
     'hero.title.after': ' de votre piste — à l’envers, gelées, ralenties.',
     'hero.lead':
-      'Freeze garde en mémoire la fin de votre signal et la transforme en nappes inversées, en gel, en arrêts de bande et en nuages granulaires — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
+      'Le son que vous venez d’entendre est déjà derrière la tête de lecture. Freeze garde en mémoire les 8 dernières secondes de votre signal et les transforme en nappes inversées, en gel, en arrêts de bande et en nuages granulaires — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
     'hero.ctaDownload': 'Télécharger Freeze {version} — Gratuit',
     'hero.ctaGuide': 'Guide d’installation',
     'hero.requirements': 'Configuration requise',
@@ -227,7 +227,7 @@ export const ui = {
     'engines.title.accent': 'cinq façons',
     'engines.title.after': ' de la relire.',
     'engines.lead':
-      'Freeze enregistre en continu votre signal. Chaque moteur relit ce passé autrement, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
+      'Attrapez la fin d’une voix : appuyez sur FREEZE, et elle reste suspendue en nappe. Freeze enregistre en continu votre signal — chaque moteur relit ce passé autrement, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
     'engines.reverse.body':
       'Le passé proche lu à l’envers, en boucle continue sur la fenêtre Size.',
     'engines.reverse.warp': 'Warp règle la vitesse de recul (0,25× à 2,75×).',
@@ -308,7 +308,7 @@ export const ui = {
     'download.title.before': 'Freeze {version} ',
     'download.title.accent': 'pour macOS.',
     'download.lead':
-      'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel.',
+      'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel. Environ une seconde à télécharger, environ deux minutes avant votre premier reverse.',
     'download.cta': 'Télécharger le .zip ({size} Ko) — Gratuit',
     'download.file': 'Fichier',
     'download.version': 'Version',

@@ -27,7 +27,7 @@
 | 4 | web-typography | pending | DESIGN.md, EXPERIMENTS.md | |
 | 5 | storybrand-messaging | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 | |
 | 6 | high-perf-browser | pending | METRICS.md, WEBSITE.md, EXPERIMENTS.md | |
-| 7 | made-to-stick | pending | POSITIONING.md, EXPERIMENTS.md | |
+| 7 | made-to-stick | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 |
 | 8 | design-everyday-things | pending | DESIGN.md, EXPERIMENTS.md | |
 
 Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reason> · skipped: <reason>
@@ -53,6 +53,9 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 | 2026-10-09 | 3 | Card headings: **two tiers kept as deliberate hierarchy** (feature cards vs supporting cards) but both made fluid (`--fs-h3-card-lg` / `--fs-h3-card`) | Unify-to-one-token rejected: Engines/Controls cards are feature-level, Install/Showcase supporting; fixed sizes broke the ramp |
 | 2026-10-09 | 3 | All three findings (V1-V3) shipped in-system; no new palette work — grayscale reads and contrast is verified | Audit scored 9/10; color adds nothing until layout works, and it already does |
 | 2026-10-09 | 3 | Marquee (8rem, ~1.5× H1) recorded as **deliberate** signature moment (V4) | North-reference structure; aria-hidden, below the fold, 10.91:1 contrast |
+| 2026-10-09 | 7 | Commander's Intent (option a): "Freeze replays what your track just played — backwards, frozen, or slowed." | 11 words, mechanism + 3 headline engines; the compass for every future surface |
+| 2026-10-09 | 7 | All four stickiness fixes shipped: loss-frame hero open, "last 8 seconds", 1s/2min testable credential, vocal→pad micro-story | Message was clear (Phase 5) but 33/60 on SUCCESs; now 46/60; remaining points need real assets (F2/F7), not copy |
+| 2026-10-09 | 7 | "Smaller than a screenshot of the plugin" rejected — verified false (74 KB source < 224 KB zip) | Sticky claims must stay verifiable; size comparison failed fact-check |
 
 ## Phase 1 findings that change the later plan
 
@@ -67,6 +70,7 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 - [x] Phase 2 done: heuristic evaluation scored 5/10; U1-U7 found; fix package (U1, U2, U3, U4, U6, U7) shipped — 2026-10-09
 - [x] Phase 5 done: hero rewritten (concrete descriptive), one-liner A chosen, internal problem = "the moment dies in the workaround", "Time Effector" dropped everywhere, "Free" at CTAs + meta — 2026-10-09
 - [x] Phase 3 done: refactoring-ui audit scored 9/10; V1-V3 shipped (fluid card-heading tokens, 44px lang targets, off-scale strays), V4 marquee recorded as deliberate — 2026-10-09
+- [x] Phase 7 done: SUCCESs 33→46/60; Commander's Intent (a) named; loss open, 8 seconds, 1s/2min, micro-story shipped — 2026-10-09
 - [ ] In parallel: restore Compat + FAQ components (F3/F4, uncomment source) and add Gatekeeper block (F1) — copy work, no methodology dependency
 - [ ] Before Phase 6: domain decision unblocks F8 (`site.url`); commission demo audio (F2) and beta quotes (F7)
 - [ ] Phase 4/6 exit: confirm skip from measured baselines
