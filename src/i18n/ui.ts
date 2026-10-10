@@ -34,6 +34,7 @@ export const ui = {
       'The sound you just heard is already behind the playhead. Freeze keeps the last 8 seconds of your signal in memory and turns them into reverse swells, frozen pads, tape stops and granular clouds — live, in your host. No bounces, no clip editing, no effect chain.',
     'hero.ctaDownload': 'Download Freeze {version} — Free',
     'hero.ctaGuide': 'Install guide',
+    'hero.reassure': 'No account. Uninstall = delete one file.',
     'hero.requirements': 'Requirements',
     'hero.req.macos': 'macOS {min} or later',
     'hero.req.cpu': 'Apple Silicon & Intel',
@@ -145,6 +146,13 @@ export const ui = {
     'install.step3.body':
       'Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “Freeze Audio by sheezy”.',
 
+    'install.gate.title': 'First load blocked by macOS?',
+    'install.gate.body':
+      'macOS may show “‘Freeze’ can’t be opened because the developer cannot be verified.” That’s expected: Freeze is free software, signed ad hoc and not notarized yet — nothing is broken. Two ways past it:',
+    'install.gate.gui':
+      'After the first blocked load, open System Settings › Privacy & Security and click “Open Anyway”.',
+    'install.gate.term': 'Or paste this into Terminal, then relaunch your host:',
+
     'compat.eyebrow': 'Compatibility',
     'compat.title.before': 'Built for ',
     'compat.title.accent': 'the Mac.',
@@ -169,7 +177,7 @@ export const ui = {
     'faq.title.accent': 'questions.',
     'faq.q1': 'How much does Freeze cost?',
     'faq.a1':
-      'No price is listed: version 1.0.0 downloads directly from this page, with no account required.',
+      'Freeze is free. Version 1.0.0 downloads directly from this page — no account, no installer, no catch.',
     'faq.q2': 'Is there a VST3, AAX or Windows version?',
     'faq.a2': 'No. Freeze is Audio Unit for macOS only.',
     'faq.q3': 'My host cannot find the plugin. What should I do?',
@@ -215,6 +223,7 @@ export const ui = {
       'Le son que vous venez d’entendre est déjà derrière la tête de lecture. Freeze garde en mémoire les 8 dernières secondes de votre signal et les transforme en nappes inversées, en gel, en arrêts de bande et en nuages granulaires — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
     'hero.ctaDownload': 'Télécharger Freeze {version} — Gratuit',
     'hero.ctaGuide': 'Guide d’installation',
+    'hero.reassure': 'Sans compte. Désinstaller = supprimer un seul fichier.',
     'hero.requirements': 'Configuration requise',
     'hero.req.macos': 'macOS {min} ou plus récent',
     'hero.req.cpu': 'Apple Silicon & Intel',
@@ -331,6 +340,13 @@ export const ui = {
     'install.step3.body':
       'Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « Freeze Audio by sheezy ».',
 
+    'install.gate.title': 'Premier chargement bloqué par macOS ?',
+    'install.gate.body':
+      'macOS peut afficher « “Freeze” ne peut pas être ouvert, car le développeur ne peut pas être vérifié ». C’est normal : Freeze est un logiciel gratuit, signé ad hoc et pas encore notarisé — rien n’est cassé. Deux solutions :',
+    'install.gate.gui':
+      'Après le premier chargement bloqué, ouvrez Réglages Système › Confidentialité et sécurité, puis cliquez sur « Ouvrir quand même ».',
+    'install.gate.term': 'Ou collez cette commande dans Terminal, puis relancez votre hôte :',
+
     'compat.eyebrow': 'Compatibilité',
     'compat.title.before': 'Pensé pour ',
     'compat.title.accent': 'le Mac.',
@@ -355,7 +371,7 @@ export const ui = {
     'faq.title.accent': 'fréquentes.',
     'faq.q1': 'Combien coûte Freeze ?',
     'faq.a1':
-      'Aucun prix n’est affiché : la version 1.0.0 se télécharge directement depuis cette page, sans compte.',
+      'Freeze est gratuit. La version 1.0.0 se télécharge directement depuis cette page — sans compte, sans installeur, sans piège.',
     'faq.q2': 'Existe-t-il une version VST3, AAX ou Windows ?',
     'faq.a2': 'Non. Freeze est uniquement disponible en Audio Unit pour macOS.',
     'faq.q3': 'Mon hôte ne trouve pas le plugin. Que faire ?',

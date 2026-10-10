@@ -40,8 +40,8 @@
   --focus-ring: var(--ink);
 
   /* Type */
-  --font-sans: 'Inter Tight Variable', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
-  --font-accent: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Inter Tight Variable', 'Inter Tight Fallback', system-ui, sans-serif;
+  --font-accent: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --fs-h1: clamp(2.75rem, 1.35rem + 4.6vw, 5.25rem);
@@ -53,6 +53,11 @@
   --fs-body: 1rem;
   --fs-lead: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
   --fs-small: 0.875rem;
+
+  /* Measure (line length). 50ch ≈ 66 characters in Inter Tight, whose `ch`
+     is ~1.33× its average character width — see docs/DESIGN.md. Applied to
+     the text-bearing element so the character count holds at any font size. */
+  --measure: 50ch;
 
   /* Spacing (4px base) */
   --space-2: 0.5rem;
@@ -77,6 +82,30 @@
 
   --container: 1440px;
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+/* Metric-matched fallbacks (Phase 6). Inter Tight and Instrument Serif are
+   much narrower than the system faces, so text reflows — and the hero loses
+   a line — when the webfont swaps in. These overrides give the fallback the
+   same metrics, so nothing moves. Values are measured, not estimated
+   (docs/DESIGN.md, Phase 6). Tuned to the macOS faces: the plugin is
+   macOS-only, so that is effectively the whole audience. */
+@font-face {
+  font-family: 'Inter Tight Fallback';
+  src: local('Avenir Next'), local('Helvetica Neue'), local('Arial');
+  size-adjust: 94%;
+  ascent-override: 97%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  src: local('Iowan Old Style'), local('Times New Roman');
+  size-adjust: 92%;
+  ascent-override: 99%;
+  descent-override: 31%;
+  line-gap-override: 0%;
 }
 
 *,
@@ -224,6 +253,11 @@ kbd {
 .section-head p {
   color: var(--ink-2);
   font-size: var(--fs-lead);
+}
+
+/* Eyebrow excluded: it is a 14px uppercase label, not prose. */
+.section-head p:not(.eyebrow) {
+  max-width: var(--measure);
 }
 
 /* Pill buttons: amethyst fill + ink text = 4.98:1; fill vs --bg = 3.30:1 */

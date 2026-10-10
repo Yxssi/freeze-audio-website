@@ -38,6 +38,14 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
         <p>{t('install.step3.body')}</p>
       </li>
     </ol>
+
+    <aside class="gatekeeper" role="note" aria-labelledby="gate-title">
+      <h3 id="gate-title">{t('install.gate.title')}</h3>
+      <p>{t('install.gate.body')}</p>
+      <p>{t('install.gate.gui')}</p>
+      <p>{t('install.gate.term')}</p>
+      <code>xattr -dr com.apple.quarantine {target}/Freeze.component</code>
+    </aside>
   </div>
 </section>
 
@@ -93,5 +101,41 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
     border-radius: var(--radius-sm);
     color: var(--ink);
     overflow-wrap: anywhere;
+  }
+
+  .gatekeeper {
+    /* Structural width, not a measure: keeps the xattr command on one line.
+       The prose inside is capped at --measure. */
+    max-width: 52rem;
+    margin-top: var(--space-10);
+    padding: var(--space-8) var(--space-6);
+    border: 1px solid var(--color-lavender-grey);
+    border-radius: var(--radius-xl);
+    background: var(--bg-raised);
+  }
+
+  .gatekeeper h3 {
+    margin-bottom: var(--space-3);
+  }
+
+  .gatekeeper p {
+    max-width: var(--measure);
+    color: var(--ink-2);
+  }
+
+  .gatekeeper p + p {
+    margin-top: var(--space-2);
+  }
+
+  .gatekeeper code {
+    display: block;
+    margin-top: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    font-size: 0.9rem;
+    /* A shell command must never wrap: a line break would be copied as part
+       of the command. Overrides the shared `code` overflow-wrap. */
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
   }
 </style>

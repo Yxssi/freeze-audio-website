@@ -31,6 +31,7 @@ const track = [...modes, ...modes, ...modes, ...modes];
       </a>
       <a class="btn btn-ghost btn-lg" href={`${home}#install`}>{t('hero.ctaGuide')}</a>
     </div>
+    <p class="reassure">{t('hero.reassure')}</p>
     <ul class="meta" aria-label={t('hero.requirements')}>
       <li>{t('hero.req.macos', { min: release.minMacOS })}</li>
       <li>{t('hero.req.cpu')}</li>
@@ -77,7 +78,7 @@ const track = [...modes, ...modes, ...modes, ...modes];
   }
 
   .lead {
-    max-width: 38rem;
+    max-width: var(--measure);
     color: var(--ink-2);
     font-size: var(--fs-lead);
   }
@@ -88,6 +89,11 @@ const track = [...modes, ...modes, ...modes, ...modes];
     justify-content: center;
     gap: var(--space-3);
     margin-top: var(--space-4);
+  }
+
+  .reassure {
+    color: var(--ink-3);
+    font-size: var(--fs-small);
   }
 
   .meta {

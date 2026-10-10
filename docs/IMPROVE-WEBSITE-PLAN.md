@@ -24,11 +24,11 @@
 | 1 | cro-methodology | done | METRICS.md, WEBSITE.md, EXPERIMENTS.md | 2026-10-09 |
 | 2 | ux-heuristics | done | DESIGN.md, EXPERIMENTS.md | 2026-10-09 |
 | 3 | refactoring-ui | done | DESIGN.md, EXPERIMENTS.md | 2026-10-09 |
-| 4 | web-typography | pending | DESIGN.md, EXPERIMENTS.md | |
-| 5 | storybrand-messaging | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 | |
-| 6 | high-perf-browser | pending | METRICS.md, WEBSITE.md, EXPERIMENTS.md | |
+| 4 | web-typography | done | DESIGN.md, EXPERIMENTS.md | 2026-10-10 |
+| 5 | storybrand-messaging | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 |
+| 6 | high-perf-browser | done | METRICS.md, WEBSITE.md, EXPERIMENTS.md | 2026-10-10 |
 | 7 | made-to-stick | done | POSITIONING.md, EXPERIMENTS.md | 2026-10-09 |
-| 8 | design-everyday-things | pending | DESIGN.md, EXPERIMENTS.md | |
+| 8 | design-everyday-things | done | DESIGN.md, EXPERIMENTS.md | 2026-10-09 |
 
 Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reason> · skipped: <reason>
 
@@ -56,11 +56,20 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 | 2026-10-09 | 7 | Commander's Intent (option a): "Freeze replays what your track just played — backwards, frozen, or slowed." | 11 words, mechanism + 3 headline engines; the compass for every future surface |
 | 2026-10-09 | 7 | All four stickiness fixes shipped: loss-frame hero open, "last 8 seconds", 1s/2min testable credential, vocal→pad micro-story | Message was clear (Phase 5) but 33/60 on SUCCESs; now 46/60; remaining points need real assets (F2/F7), not copy |
 | 2026-10-09 | 7 | "Smaller than a screenshot of the plugin" rejected — verified false (74 KB source < 224 KB zip) | Sticky claims must stay verifiable; size comparison failed fact-check |
+| 2026-10-09 | 8 | Gatekeeper recovery block teaches **both** paths: System Settings › "Open Anyway" (GUI) + `xattr -dr com.apple.quarantine` (Terminal), in Install after the 3 steps | Both audiences (non-technical + technical producers) hit the same dialog; GUI-only or Terminal-only would strand half of them |
+| 2026-10-09 | 8 | FAQ q1 rewritten to commit to the free model: "Freeze is free. … no account, no installer, no catch." (EN + FR) | The answer must match the question the visitor actually asks ("is it free?") — and it locks site copy to the free model per the Phase 1 exit decision |
+| 2026-10-09 | 8 | Risk-reversal line added at the hero CTA: "No account. Uninstall = delete one file." (EN + FR) | Norman: undo/exit must be surfaced where the action is asked — commitment fear lives at the button, not in the FAQ |
+| 2026-10-10 | 4 | Typefaces kept: Inter Tight Variable + Instrument Serif italic — no pairing repair | Both faces verified actually loading, contrast is structural (grotesque vs. high-contrast serif italic), payload 65.4 KB. The defect was measure, not typeface choice |
+| 2026-10-10 | 4 | Measure scope: gatekeeper **and** all prose to 50ch (~66 characters — the optimum, not the 75 ceiling) | Phase 4 found a real miss rather than the predicted skip; the `rem` caps were delivering 101/88 characters per line |
+| 2026-10-10 | 4 | Measure caps moved from `rem` to a single `--measure: 50ch` token | `ch` is font-relative, so 50ch holds ~66 characters at any font size and self-corrects on a font swap; `rem` caps drifted silently, which is how T2 arose |
+| 2026-10-10 | 6 | CLS fix = preload + metric-matched fallback — not `font-display: optional`, not accept | `optional` zeroes CLS but shows first-time visitors the page without Inter Tight or the serif accents, and the design is the pitch; accepting 0.071 left a real, proven, cheap-to-fix shift in place |
+| 2026-10-10 | 6 | Deploy-host transport rows (HTTP/2, compression, `Cache-Control`) recorded as a requirements table in METRICS.md, not a committed `_headers` file | The host is unchosen (F8); a host-specific config file would presume a platform, while the requirements belong with the measurements |
+| 2026-10-10 | 6 | Metric-matched fallback retained despite being only partially effective (F11) | Correct and harmless as a second line of defence, and the preload is the effective fix; the `ch`-cap interaction is recorded as a finding rather than silently reverted |
 
 ## Phase 1 findings that change the later plan
 
-- **Phase 4 (web-typography) → skip candidate:** body 16px / lh 1.5 / clamp scale / self-hosted `swap` fonts already meet targets; Phase 4 will measure ~66ch on key templates and skip unless a miss is found.
-- **Phase 6 (high-perf-browser) → skip candidate:** Lighthouse 100/100/100 on `/` desktop, `/` mobile, `/fr/` mobile; LCP 1.2 s mobile, CLS 0.008, TBT 0 ms, 4 requests / 77 KB, zero client JS. Baselines recorded in METRICS.md — Phase 6 verifies rather than derives.
+- **Phase 4 (web-typography) → NOT a skip: measured 2026-10-10, one real miss found (measure).** Body 16px / lh 1.5 / clamp scale / self-hosted `swap` fonts met their targets exactly as predicted, but line length did not: prose caps authored in `rem` delivered 101/88 characters per line where `ch` reported compliance (Inter Tight's `ch` is 1.33× its average character width). Fixed with a `--measure: 50ch` token + a no-wrap command block (T1–T4). Score 9/10 → 10/10.
+- **Phase 6 (high-perf-browser) → NOT a skip: verified 2026-10-10, one real regression found (CLS).** Lighthouse 12.8.2 / Chromium 152 on the current build: Performance 100/100/100, Accessibility 100, SEO 100, LCP 0.29 / 1.20 / 1.28 s, TBT 0 ms, 5 requests / 88 KB. CLS had regressed 0.009 → **0.071 desktop / 0.041 mobile** (proven font-swap cause, F10); fixed with preloads + metric-matched fallbacks → **CLS 0.000, 0 layout shifts**. The three transport rows (HTTP/2+, Brotli, caching) stay ungraded until the host is chosen (F12).
 - **Phase 5 (storybrand-messaging) is now the critical path** for conversion: hero rewrite (F6) + "Free" placement (F5) + one-liner.
 - **F1 (Gatekeeper) routes to Phase 8** (design-everyday-things) as an error-prevention + copy task on the install flow.
 
@@ -71,8 +80,28 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 - [x] Phase 5 done: hero rewritten (concrete descriptive), one-liner A chosen, internal problem = "the moment dies in the workaround", "Time Effector" dropped everywhere, "Free" at CTAs + meta — 2026-10-09
 - [x] Phase 3 done: refactoring-ui audit scored 9/10; V1-V3 shipped (fluid card-heading tokens, 44px lang targets, off-scale strays), V4 marquee recorded as deliberate — 2026-10-09
 - [x] Phase 7 done: SUCCESs 33→46/60; Commander's Intent (a) named; loss open, 8 seconds, 1s/2min, micro-story shipped — 2026-10-09
-- [ ] In parallel: restore Compat + FAQ components (F3/F4, uncomment source) and add Gatekeeper block (F1) — copy work, no methodology dependency
-- [ ] Before Phase 6: domain decision unblocks F8 (`site.url`); commission demo audio (F2) and beta quotes (F7)
-- [ ] Phase 4/6 exit: confirm skip from measured baselines
-- [ ] Before Phase 6: build + run Lighthouse to decide skip vs. light pass (owner: user/session)
-- [ ] During Phase 4: measure line length (~66ch) on key templates to confirm skip vs. fix
+- [x] Phase 8 done: two-gulfs audit scored 6/10 → 10/10; Gatekeeper recovery block (both paths), Compat + FAQ restored, FAQ q1 "free" rewrite, hero risk-reversal line shipped, EN + FR — 2026-10-09
+- [x] Before Phase 6: built + ran Lighthouse 12.8.2 on the current build (EN desktop, EN mobile, FR mobile) — 2026-10-10
+- [x] Phase 4 done: measured on Chromium 152 (390/640/1280, EN+FR) via CDP — found a real miss (measure), not the predicted skip; `--measure: 50ch` token + no-wrap `code` block shipped — 2026-10-10
+- [x] Phase 6 done: found + fixed the CLS regression (0.071 / 0.041 → **0.000**, 0 layout shifts) with font preloads + metric-matched fallbacks; baselines refreshed in METRICS.md — 2026-10-10
+- [ ] At deploy (blocked on F8/domain): configure HTTP/2+, Brotli, and `Cache-Control: max-age=31536000, immutable` on `/_astro/*`, then re-run Lighthouse to grade F12 — see the METRICS.md requirements table
+- [ ] Optional, low priority: F11 — move the hero H1's `22ch` cap to a non-font-relative unit so the metric-matched fallback aligns line counts; and subset fonts (`dist/` ships 264 KB of subsets no locale downloads → ~66 KB)
+- [ ] Before launch: domain decision unblocks F8 (`site.url` off `https://example.com`)
+- [ ] Asset pipeline (parallel, blocks the two open severity-4/3 findings): commission demo audio (F2) and gather beta quotes (F7) — acquisition tasks, never fabricated
+- [ ] Product-level (page mitigation shipped, root cause open): Apple notarization for Freeze.component (F1/N1); contact/support channel (F9)
+- [ ] Cleanup decision: delete the 14 `public/__ux_*.html` dev probes (untracked, not committed) before launch
+
+## Journey Closed — 2026-10-10
+
+All eight phases are `done`. Nothing is `pending`, `skipped` or `deferred`. Exit checklist:
+
+- [x] Every phase in this tracker shows `done`
+- [x] Every fix is a table row with a priority — `WEBSITE.md` F1–F12 (severity 0-4), `DESIGN.md` U/V/N/T findings, `METRICS.md` baselines and requirements. *The artifact tables carry severity rather than an owner column; owners live in Next Actions above.*
+- [x] THE ONE ACTION is unambiguous — verified in the built HTML: 3× Download (nav, hero, download section) + 1 transitional "Install guide". No competing CTAs.
+- [ ] **Experiment Cards — deliberately empty.** Promotion requires real traffic and the page is unlaunched. Sizing is pre-staged in `EXPERIMENTS.md` so the trigger is arithmetic, not judgement, on launch day.
+
+**Both phases of the final session found real defects rather than confirming the skips predicted at Phase 1.** Phase 4's measure miss (101 chars/line reported as 76ch) and Phase 6's CLS regression (0.009 → 0.071) were both invisible to CSS reading and only surfaced under measurement — which is the argument for keeping rendered measurement in the loop rather than trusting declared values.
+
+**What remains is not page work.** F2 demo audio (sev 4, the biggest lever), F7 beta quotes (sev 3), F8 domain (sev 3 — also blocks F12's transport rows), F9 contact channel (sev 2), Apple notarization (F1's root cause), and the `__ux_*.html` cleanup decision. Every one is an acquisition or product decision, not a site fix.
+
+**Forward routing:** once the site converts and needs qualified traffic → `grow-website`. If the friction moves into the plugin itself → `improve-app`.
