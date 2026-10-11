@@ -85,23 +85,23 @@ Statuses: pending · in-progress · awaiting-evidence · done · deferred: <reas
 - [x] Phase 4 done: measured on Chromium 152 (390/640/1280, EN+FR) via CDP — found a real miss (measure), not the predicted skip; `--measure: 50ch` token + no-wrap `code` block shipped — 2026-10-10
 - [x] Phase 6 done: found + fixed the CLS regression (0.071 / 0.041 → **0.000**, 0 layout shifts) with font preloads + metric-matched fallbacks; baselines refreshed in METRICS.md — 2026-10-10
 - [ ] At deploy (blocked on F8/domain): configure HTTP/2+, Brotli, and `Cache-Control: max-age=31536000, immutable` on `/_astro/*`, then re-run Lighthouse to grade F12 — see the METRICS.md requirements table
-- [ ] Optional, low priority: F11 — move the hero H1's `22ch` cap to a non-font-relative unit so the metric-matched fallback aligns line counts; and subset fonts (`dist/` ships 264 KB of subsets no locale downloads → ~66 KB)
+- [x] Optional items reviewed 2026-10-11 — **font subsetting: decided against.** The unused subsets are unicode-range-gated and verified to cost visitors nothing at runtime (0 bytes downloaded on both locales); hand-rolling a latin-only `@font-face` to shrink `dist/` would add a hand-maintained unicode-range for zero user benefit. **F11 (hero H1 cap unit): left open** — converting `22ch` to a fixed unit would break the cap's fluid scaling with the H1's clamp size, a design regression for no measured gain, since CLS is already 0.000.
 - [ ] Before launch: domain decision unblocks F8 (`site.url` off `https://example.com`)
 - [ ] Asset pipeline (parallel, blocks the two open severity-4/3 findings): commission demo audio (F2) and gather beta quotes (F7) — acquisition tasks, never fabricated
 - [ ] Product-level (page mitigation shipped, root cause open): Apple notarization for Freeze.component (F1/N1); contact/support channel (F9)
-- [ ] Cleanup decision: delete the 14 `public/__ux_*.html` dev probes (untracked, not committed) before launch
+- [x] `public/__ux_*.html` dev probes moved out of the build to `scripts/probes/` — they were being copied into `dist/` and would have been publicly live at `/__ux_probe.html` etc. (F13), 2026-10-11. Deleting the directory outright remains the user's call.
 
 ## Journey Closed — 2026-10-10
 
 All eight phases are `done`. Nothing is `pending`, `skipped` or `deferred`. Exit checklist:
 
 - [x] Every phase in this tracker shows `done`
-- [x] Every fix is a table row with a priority — `WEBSITE.md` F1–F12 (severity 0-4), `DESIGN.md` U/V/N/T findings, `METRICS.md` baselines and requirements. *The artifact tables carry severity rather than an owner column; owners live in Next Actions above.*
+- [x] Every fix is a table row with a priority — `WEBSITE.md` F1–F13 (severity 0-4), `DESIGN.md` U/V/N/T findings, `METRICS.md` baselines and requirements. *The artifact tables carry severity rather than an owner column; owners live in Next Actions above.*
 - [x] THE ONE ACTION is unambiguous — verified in the built HTML: 3× Download (nav, hero, download section) + 1 transitional "Install guide". No competing CTAs.
 - [ ] **Experiment Cards — deliberately empty.** Promotion requires real traffic and the page is unlaunched. Sizing is pre-staged in `EXPERIMENTS.md` so the trigger is arithmetic, not judgement, on launch day.
 
 **Both phases of the final session found real defects rather than confirming the skips predicted at Phase 1.** Phase 4's measure miss (101 chars/line reported as 76ch) and Phase 6's CLS regression (0.009 → 0.071) were both invisible to CSS reading and only surfaced under measurement — which is the argument for keeping rendered measurement in the loop rather than trusting declared values.
 
-**What remains is not page work.** F2 demo audio (sev 4, the biggest lever), F7 beta quotes (sev 3), F8 domain (sev 3 — also blocks F12's transport rows), F9 contact channel (sev 2), Apple notarization (F1's root cause), and the `__ux_*.html` cleanup decision. Every one is an acquisition or product decision, not a site fix.
+**What remains is not page work.** F2 demo audio (sev 4, the biggest lever), F7 beta quotes (sev 3), F8 domain (sev 3 — also blocks F12's transport rows), F9 contact channel (sev 2), and Apple notarization (F1's root cause). Every one is an acquisition or product decision, not a site fix. F13 (probe pages shipping to production) was found on review after the close and fixed the same day.
 
 **Forward routing:** once the site converts and needs qualified traffic → `grow-website`. If the friction moves into the plugin itself → `improve-app`.
