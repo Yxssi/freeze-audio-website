@@ -2,69 +2,78 @@
 
 ## Nom du plugin
 
-**Freeze Audio by sheezy** — « Time Effector ». Audio Unit v2 (`aufx`) pour macOS, version 1.0.0.
+**Freeze Audio by sheezy** — « Time Effector ». Version **1.1.0**, macOS et Windows.
 
 ## À quoi il sert
 
-Freeze enregistre en continu le passé récent de votre piste dans une mémoire tampon, puis le rejoue autrement : à l'envers, gelé, ralenti, en arrêt de bande ou en nuage granulaire. Un seul effet pour transformer n'importe quelle source en textures, transitions et moments suspendus.
+Freeze est un effet temporel : il enregistre en continu le passé récent de la piste et le rejoue autrement.
 
-## Fonctionnalités principales
+## Fonctionnalités principales (v1.1.0)
 
-- **5 moteurs de lecture** : Reverse, Freeze (boucle ping-pong gelée), Stretch (ralenti), Tape Reverse (tape-stop / inversion), Grain Reverse (nuage granulaire inversé).
-- **Bouton FREEZE** : re-gèle instantanément le fragment en cours.
-- **Contrôles de mise en forme** : Size (0,05 à 8 s), Warp, Feedback, Tone (filtre tilt passe-bas ↔ passe-haut), Mix, gain d'entrée et de sortie (±24 dB), Bypass.
-- **6 presets factory** : Init, Ghost Phrase, Infinite Pad, Slow Motion, Tape Stop Drama, Reverse Cloud.
-- **Interface sombre dédiée** : knobs, bandeau de modes et scope avec forme d'onde en direct.
+- **6 modes** : Reverse, Freeze, Stretch, Tape, Grain, Stutter.
+- **EVERY** (mode Freeze) : re-gèle sur la grille de tempo de l'hôte (HOLD, 1/1, 1/2, 1/4, 1/8, 1/8T, 1/16) ; quand le transport est arrêté, continue au dernier tempo connu.
+- **Contrôles** : Size (0,05–8 s), Warp (rôle selon le mode, ex. Motion en Freeze), Feedback, Tone (passe-bas ↔ passe-haut, centre = neutre), Mix, Gain (±24 dB), rangée Rate / Every, bouton FREEZE, STOP, Bypass.
+- **Presets** : 19 presets d'usine, presets utilisateur (enregistrer / supprimer, partagés entre formats), flèches précédent / suivant.
+- **Affichage** : forme d'onde en direct avec têtes de lecture, vumètres IN / OUT, barre d'aide contextuelle.
+
+## Formats et configuration
+
+| Plateforme | Système | Formats | Processeur |
+| --- | --- | --- | --- |
+| macOS | 12 Monterey ou plus récent | Audio Unit + VST3 | Universel (Apple Silicon + Intel) |
+| Windows | 10 / 11, 64 bits | VST3 | x64 |
+
+## Prix
+
+Gratuit (inchangé depuis la 1.0.0). Aucun compte.
 
 ## Public cible
 
-Producteurs et beatmakers sur Mac (hôtes compatibles Audio Unit) qui cherchent des effets de transition, de reverse et de textures ambient sans chaîne d'effets complexe. Également les sound designers et musiciens électroniques qui veulent geler ou étirer un passage en direct.
+Producteurs, beatmakers et sound designers sur macOS **et** Windows, quel que soit le DAW (hôtes VST3 ou Audio Unit), qui veulent des reverses, des nappes gelées, des tape stops et des stutters sans chaîne d'effets complexe.
 
-## Stack souhaitée
+## Stack
 
-- **Astro**, site 100 % statique, sortie via `astro build` (dossier `dist/` déployable sur n'importe quel hébergeur statique).
-- Pas de framework JS côté client. Îlots Astro (`client:*`) uniquement si un besoin interactif réel l'impose (par exemple un lecteur audio de démo).
-- Identité visuelle à reprendre de l'UI du plugin : fond sombre `#14171a`, accent orange `#e39b4e`.
+- **Astro**, site 100 % statique (`astro build` → `dist/`).
+- Aucun framework JS côté client, aucun script inline.
+- Identité visuelle : voir `DESIGN.md` (palette lavande / Amethyst / Light Blue). L'ancien accent orange `#e39b4e` n'est plus utilisé.
 
 ## Contraintes
 
 ### SEO
 
-- `<title>` et meta description uniques par page.
-- Balises Open Graph et Twitter Card (image de partage dédiée).
-- Sitemap généré (`@astrojs/sitemap`) et `robots.txt`.
-- Données structurées JSON-LD `SoftwareApplication` (nom, `operatingSystem: macOS 12+`, catégorie, version, lien de téléchargement).
+- `<title>` et meta description uniques par page (EN, FR).
+- Open Graph et Twitter Card (`public/og.png`, régénérée par `npm run og`).
+- Sitemap (`@astrojs/sitemap`) et `robots.txt`.
+- JSON-LD `SoftwareApplication` : `operatingSystem: "macOS 12+, Windows 10/11"`, `softwareVersion: 1.1.0`, `downloadUrl` = les deux installeurs, offre gratuite.
 - URL canonique sur chaque page.
 
-### Performance
+### Performance, accessibilité
 
-- Lighthouse ≥ 95 sur toutes les catégories (mobile et desktop).
-- Zéro JS livré par défaut.
-- Images optimisées via `astro:assets` (formats modernes, dimensions explicites, lazy-loading hors écran).
-- Polices auto-hébergées (pas de CDN tiers), `font-display: swap`, sous-ensembles si possible.
+- Lighthouse ≥ 95, zéro JS livré, images via `astro:assets`, polices auto-hébergées.
+- WCAG 2.2 AA, navigation clavier, lien d'évitement, `prefers-reduced-motion`.
 
-### Accessibilité
+### Produit — téléchargements
 
-- Conformité WCAG 2.2 niveau AA.
-- Contrastes vérifiés sur thème sombre, y compris l'accent `#e39b4e` utilisé en texte ou sur fond.
-- Navigation clavier complète, focus visible, lien d'évitement vers le contenu.
-- Respect de `prefers-reduced-motion` pour toute animation.
+Quatre fichiers par version, servis depuis `public/downloads/` (même mécanisme qu'en 1.0.0) :
 
-### Produit
+| Fichier | Contenu |
+| --- | --- |
+| `FreezeAudio-1.1.0-macOS.pkg` | Installeur Audio Unit + VST3 |
+| `FreezeAudio-1.1.0-macOS.zip` | Installation manuelle (`Freeze.component`, `Freeze Audio.vst3`) |
+| `FreezeAudio-1.1.0-Windows-Setup.exe` | Installeur VST3 |
+| `FreezeAudio-1.1.0-Windows.zip` | Installation manuelle (`Freeze Audio.vst3`) |
 
-- **Téléchargement** : archive `.zip` contenant `Freeze.component`.
-- **Instructions d'installation** :
-  1. Décompresser l'archive.
-  2. Copier `Freeze.component` dans `~/Library/Audio/Plug-Ins/Components`.
-  3. Relancer l'hôte audio (ou refaire un scan des plugins).
-- **Compatibilité à afficher** : macOS 12 ou plus récent, binaire universel Apple Silicon et Intel, format Audio Unit uniquement (hôtes AU : Logic Pro, GarageBand, FL Studio sur Mac, etc.). Pas de VST3, AAX ni Windows.
-- **Gatekeeper** : le plugin est signé ad hoc et **n'est pas notarisé** actuellement. macOS peut le bloquer au premier chargement. Prévoir une note d'aide (retrait de l'attribut de quarantaine ou autorisation dans Réglages Système). À traiter comme un point ouvert.
+Version, noms de fichiers et URL de base sont centralisés dans `src/site.ts`. Le dépôt GitHub du plugin est privé : aucun lien vers des releases GitHub.
+
+### Produit — installation
+
+- **macOS** : lancer le `.pkg`, ou copier `Freeze.component` dans `~/Library/Audio/Plug-Ins/Components` et `Freeze Audio.vst3` dans `~/Library/Audio/Plug-Ins/VST3`, puis rescanner dans le DAW. Builds non notarisés : clic droit › Ouvrir sur le `.pkg`, ou autorisation dans Réglages Système › Confidentialité et sécurité.
+- **Windows** : lancer le `Setup.exe` (installe dans `C:\Program Files\Common Files\VST3\`), ou copier `Freeze Audio.vst3` depuis le `.zip`, puis rescanner. Non signé : SmartScreen › Informations complémentaires › Exécuter quand même.
 
 ## Points ouverts
 
-- Nom de domaine.
-- Modèle de distribution : gratuit ou payant (aucun prix défini).
-- Notarisation Apple (nécessite un compte Apple Developer) pour supprimer l'avertissement Gatekeeper.
-- Visuels : captures de l'interface, image Open Graph, démos audio.
-- Hébergement du `.zip` et lien de téléchargement définitif.
-- Liste des hôtes AU officiellement testés (seul FL Studio est mentionné à ce jour).
+- Nom de domaine (`site.url` reste `https://example.com`).
+- Notarisation Apple et signature Authenticode Windows (suppriment les avertissements Gatekeeper / SmartScreen).
+- Démos audio (emplacement prévu, section masquée tant que `demos` est vide).
+- Liste des DAW officiellement testés sur les deux plateformes.
+- Hébergement des binaires : `public/downloads/` convient tant que le total reste raisonnable pour l'hébergeur statique ; sinon pointer `downloadsBaseUrl` vers un stockage externe.

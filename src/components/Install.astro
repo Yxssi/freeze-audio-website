@@ -1,16 +1,68 @@
 ---
-import { release } from '../site';
+import { release, type PlatformId } from '../site';
 import {
   defaultLang,
   isLang,
+  templateParts,
   useTranslations,
   type Lang,
+  type UiKey,
 } from '../i18n/ui';
 
 const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
 const t = useTranslations(lang);
-const target = '~/Library/Audio/Plug-Ins/Components';
-const zipName = release.downloadPath.split('/').pop() ?? '';
+
+const paths = {
+  component: 'Freeze.component',
+  vst3: 'Freeze Audio.vst3',
+  macComponents: '~/Library/Audio/Plug-Ins/Components',
+  macVst3: '~/Library/Audio/Plug-Ins/VST3',
+  windowsVst3: 'C:\\Program Files\\Common Files\\VST3',
+};
+
+const installerName = (id: PlatformId) =>
+  release.platforms.find((platform) => platform.id === id)?.installer.name ?? '';
+
+interface Guide {
+  id: PlatformId;
+  label: string;
+  steps: Array<{ key: UiKey; slots: Record<string, string> }>;
+  noteTitle: UiKey;
+  noteBody: UiKey;
+}
+
+const guides: Guide[] = [
+  {
+    id: 'macos',
+    label: 'macOS',
+    steps: [
+      { key: 'install.macos.step1', slots: { file: installerName('macos') } },
+      {
+        key: 'install.macos.step2',
+        slots: {
+          component: paths.component,
+          componentFolder: paths.macComponents,
+          vst3: paths.vst3,
+          vst3Folder: paths.macVst3,
+        },
+      },
+      { key: 'install.macos.step3', slots: {} },
+    ],
+    noteTitle: 'install.macos.note.title',
+    noteBody: 'install.macos.note.body',
+  },
+  {
+    id: 'windows',
+    label: 'Windows',
+    steps: [
+      { key: 'install.windows.step1', slots: { file: installerName('windows'), folder: paths.windowsVst3 } },
+      { key: 'install.windows.step2', slots: { vst3: paths.vst3 } },
+      { key: 'install.windows.step3', slots: {} },
+    ],
+    noteTitle: 'install.windows.note.title',
+    noteBody: 'install.windows.note.body',
+  },
+];
 ---
 
 <section class="section install" id="install" aria-labelledby="install-title">
@@ -22,30 +74,28 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
       </h2>
     </div>
 
-    <ol class="steps">
-      <li>
-        <h3>{t('install.step1.title')}</h3>
-        <p>{t('install.step1.body', { file: zipName })}</p>
-      </li>
-      <li>
-        <h3>{t('install.step2.title')}</h3>
-        <p>
-          {t('install.step2.body.before')}<code>{target}</code>{t('install.step2.body.after')}
-        </p>
-      </li>
-      <li>
-        <h3>{t('install.step3.title')}</h3>
-        <p>{t('install.step3.body')}</p>
-      </li>
-    </ol>
-
-    <aside class="gatekeeper" role="note" aria-labelledby="gate-title">
-      <h3 id="gate-title">{t('install.gate.title')}</h3>
-      <p>{t('install.gate.body')}</p>
-      <p>{t('install.gate.gui')}</p>
-      <p>{t('install.gate.term')}</p>
-      <code>xattr -dr com.apple.quarantine {target}/Freeze.component</code>
-    </aside>
+    <div class="guides">
+      {
+        guides.map((guide) => (
+          <article class="guide" aria-labelledby={`install-${guide.id}`}>
+            <h3 id={`install-${guide.id}`}>{guide.label}</h3>
+            <ol class="steps">
+              {guide.steps.map((step) => (
+                <li>
+                  {templateParts(t(step.key)).map((part) =>
+                    part.slot ? <code>{step.slots[part.name]}</code> : part.text,
+                  )}
+                </li>
+              ))}
+            </ol>
+            <aside class="note" aria-label={t(guide.noteTitle)}>
+              <p class="note-title">{t(guide.noteTitle)}</p>
+              <p>{t(guide.noteBody)}</p>
+            </aside>
+          </article>
+        ))
+      }
+    </div>
   </div>
 </section>
 
@@ -54,9 +104,28 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
     background: var(--bg-tint);
   }
 
+  .guides {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-4);
+  }
+
+  .guide {
+    display: grid;
+    align-content: start;
+    gap: var(--space-6);
+    padding: clamp(var(--space-6), 4vw, var(--space-10));
+    background: var(--bg-raised);
+    border-radius: var(--radius-xl);
+  }
+
+  h3 {
+    font-size: var(--fs-h3);
+    line-height: 1.1;
+  }
+
   .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: var(--space-4);
     margin: 0;
     padding: 0;
@@ -66,33 +135,26 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
 
   .steps li {
     counter-increment: step;
-    padding: var(--space-8) var(--space-6);
-    background: var(--bg-raised);
-    border-radius: var(--radius-xl);
+    position: relative;
+    min-height: 2rem;
+    padding: 0.25rem 0 0 calc(2rem + var(--space-3));
+    color: var(--ink-2);
   }
 
   .steps li::before {
     content: counter(step);
+    position: absolute;
+    top: 0;
+    left: 0;
     display: grid;
     place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-bottom: var(--space-6);
+    width: 2rem;
+    height: 2rem;
     border-radius: var(--radius-pill);
     background: var(--color-amethyst);
     color: var(--ink);
+    font-size: var(--fs-small);
     font-weight: 700;
-  }
-
-  h3 {
-    font-size: var(--fs-h3-card);
-    line-height: 1.3;
-    letter-spacing: -0.03em;
-    margin-bottom: var(--space-2);
-  }
-
-  .steps p {
-    color: var(--ink-2);
   }
 
   code {
@@ -103,35 +165,17 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
     overflow-wrap: anywhere;
   }
 
-  .gatekeeper {
-    max-width: 52rem;
-    margin-top: var(--space-10);
-    padding: var(--space-8) var(--space-6);
+  .note {
+    padding: var(--space-4) var(--space-6);
     border: 1px solid var(--color-lavender-grey);
-    border-radius: var(--radius-xl);
-    background: var(--bg-raised);
-  }
-
-  .gatekeeper h3 {
-    margin-bottom: var(--space-3);
-  }
-
-  .gatekeeper p {
-    max-width: var(--measure);
+    border-radius: var(--radius-lg);
     color: var(--ink-2);
+    font-size: var(--fs-small);
   }
 
-  .gatekeeper p + p {
-    margin-top: var(--space-2);
-  }
-
-  .gatekeeper code {
-    display: block;
-    margin-top: var(--space-3);
-    padding: var(--space-3) var(--space-4);
-    font-size: 0.9rem;
-    white-space: pre;
-    overflow-wrap: normal;
-    overflow-x: auto;
+  .note-title {
+    margin-bottom: var(--space-2);
+    color: var(--ink);
+    font-weight: 600;
   }
 </style>

@@ -33,19 +33,19 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" v
   <g transform="translate(72 64) scale(1.3)">${wordmark}</g>
   <text x="72" y="270" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">Rejouez le passé</text>
   <text x="72" y="342" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">de votre son.</text>
-  <text x="72" y="410" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="24" font-weight="500" fill="#4a4254">Audio Unit · macOS 12+ · Apple Silicon &amp; Intel</text>
+  <text x="72" y="410" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="24" font-weight="500" fill="#4a4254">VST3 &amp; AU · macOS &amp; Windows · Free</text>
 
   <rect x="680" y="96" width="456" height="340" rx="20" fill="#1e1a24"/>
   <text x="708" y="146" font-family="Avenir Next Condensed, Avenir Next, sans-serif" font-size="30" font-weight="800" fill="#f6f5fa">FREEZE</text>
-  ${['REV', 'FRZ', 'STR', 'TAPE', 'GRN'].map((m, i) => `
-    <rect x="${708 + i * 82}" y="168" width="74" height="30" rx="7" fill="${i === 1 ? '#3a3050' : '#2a2530'}" stroke="${i === 1 ? '#947eb0' : '#3a3442'}"/>
-    <text x="${745 + i * 82}" y="188" text-anchor="middle" font-family="Avenir Next, sans-serif" font-size="12" font-weight="700" fill="${i === 1 ? '#b7a6cc' : '#c9c3d3'}">${m}</text>`).join('')}
+  ${['REV', 'FRZ', 'STR', 'TAPE', 'GRN', 'STUT'].map((m, i) => `
+    <rect x="${708 + i * 68}" y="168" width="62" height="30" rx="7" fill="${i === 1 ? '#3a3050' : '#2a2530'}" stroke="${i === 1 ? '#947eb0' : '#3a3442'}"/>
+    <text x="${739 + i * 68}" y="188" text-anchor="middle" font-family="Avenir Next, sans-serif" font-size="12" font-weight="700" fill="${i === 1 ? '#b7a6cc' : '#c9c3d3'}">${m}</text>`).join('')}
   ${knob(760, 262, 0.2)}${knob(868, 262, 0.5)}${knob(976, 262, 0.37)}${knob(1084, 262, 0.6)}
   <rect x="708" y="320" width="400" height="96" rx="10" fill="#2a2530"/>
   <path d="${wave}" fill="none" stroke="#a9d2d5" stroke-width="2"/>
 
   <rect y="506" width="1200" height="124" fill="#a9d2d5"/>
-  <text x="-20" y="598" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="84" font-weight="600" letter-spacing="-4" fill="#1a1620">REVERSE • FREEZE • STRETCH • TAPE • GRAIN</text>
+  <text x="-20" y="598" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="84" font-weight="600" letter-spacing="-4" fill="#1a1620">REVERSE • FREEZE • STRETCH • TAPE • GRAIN • STUTTER</text>
 </svg>`;
 
 await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toFile('public/og.png');

@@ -2,6 +2,12 @@
 
 Journey artifact for the improve-website journey. Created in Phase 5 (storybrand-messaging) on 2026-10-09. Builds on `BRIEF.md` (product, audience) — this file is the messaging layer: what we say, where.
 
+## Update for v1.1.0 (2026-10-15)
+
+Freeze now ships on macOS (AU + VST3) and Windows (VST3), with six modes. Read "Mac producer" below as "producer on macOS or Windows", "five engines" as "six modes", and the plan as "download the installer for your platform, rescan your DAW". Current one-liner:
+
+> **Freeze is a free time-effect plugin that keeps recording the last seconds of your track and replays them backwards, frozen, slowed, tape-stopped, as grains or stutters — on macOS and Windows.**
+
 ## Brand Script (StoryBrand)
 
 | SB7 element | Content |

@@ -23,13 +23,12 @@ const home = homePath(lang);
     <nav aria-label={t('footer.nav')}>
       <ul>
         <li>
-          <a href={release.downloadPath} download>
+          <a href={`${home}#download`}>
             {t('footer.download', { version: release.version })}
           </a>
         </li>
+        <li><a href={`${home}#features`}>{t('footer.features')}</a></li>
         <li><a href={`${home}#install`}>{t('footer.install')}</a></li>
-        <li><a href={`${home}#compat`}>{t('footer.compat')}</a></li>
-        <li><a href={`${home}#faq`}>{t('footer.faq')}</a></li>
       </ul>
     </nav>
     <p class="legal">{t('footer.legal', { version: release.version })}</p>

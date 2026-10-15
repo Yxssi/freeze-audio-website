@@ -1,125 +1,178 @@
 ---
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { release } from '../site';
+import DownloadIcon from './DownloadIcon.astro';
+import { release, type DownloadFile, type PlatformId } from '../site';
+import { formatSize, readFileFacts } from '../downloads';
 import {
   defaultLang,
   isLang,
   useTranslations,
   type Lang,
+  type UiKey,
 } from '../i18n/ui';
 
 const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
 const t = useTranslations(lang);
+const sizeUnits = { kb: t('meta.sizeKb'), mb: t('meta.sizeMb') };
 
-const fileName = release.downloadPath.split('/').pop() ?? '';
-const file = readFileSync(join(process.cwd(), 'public', release.downloadPath));
-const sizeKo = Math.round(file.byteLength / 1024);
-const sha256 = createHash('sha256').update(file).digest('hex');
+const requirementKeys: Record<PlatformId, { os: UiKey; formats: UiKey; cpu: UiKey }> = {
+  macos: { os: 'download.macos.os', formats: 'download.macos.formats', cpu: 'download.macos.cpu' },
+  windows: { os: 'download.windows.os', formats: 'download.windows.formats', cpu: 'download.windows.cpu' },
+};
+
+function describe(file: DownloadFile, label: string) {
+  const facts = readFileFacts(file);
+  return {
+    ...file,
+    label: facts ? `${label} · ${formatSize(facts.bytes, lang, sizeUnits)}` : label,
+    sha256: facts?.sha256,
+  };
+}
+
+const platforms = release.platforms.map((platform) => ({
+  ...platform,
+  installer: describe(platform.installer, t('download.installer')),
+  archive: describe(platform.archive, t('download.archive')),
+  requirements: [
+    t(requirementKeys[platform.id].os),
+    t(requirementKeys[platform.id].formats),
+    t(requirementKeys[platform.id].cpu),
+  ],
+}));
+
+const checksums = platforms
+  .flatMap((platform) => [platform.installer, platform.archive])
+  .filter((file) => file.sha256);
 ---
 
 <section class="section download" id="download" aria-labelledby="download-title">
   <div class="container">
-    <div class="card">
-      <div class="copy">
-        <p class="eyebrow">{t('download.eyebrow')}</p>
-        <h2 id="download-title">
-          {t('download.title.before', { version: release.version })}<span class="accent">{t('download.title.accent')}</span>
-        </h2>
-        <p class="lead">{t('download.lead')}</p>
-      </div>
-
-      <div class="action">
-        <a class="btn btn-primary btn-lg" href={release.downloadPath} download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path>
-          </svg>
-          {t('download.cta', { size: sizeKo })}
-        </a>
-        <dl class="facts">
-          <div><dt>{t('download.file')}</dt><dd>{fileName}</dd></div>
-          <div><dt>{t('download.version')}</dt><dd>{release.version}</dd></div>
-          <div><dt>{t('download.system')}</dt><dd>{t('download.systemValue', { min: release.minMacOS })}</dd></div>
-          <div class="sha"><dt>{t('download.sha')}</dt><dd><code>{sha256}</code></dd></div>
-        </dl>
-      </div>
+    <div class="section-head">
+      <p class="eyebrow">{t('download.eyebrow')}</p>
+      <h2 id="download-title">
+        {t('download.title.before', { version: release.version })}<span class="accent">{t('download.title.accent')}</span>
+      </h2>
+      <p>{t('download.lead')}</p>
     </div>
+
+    <div class="platforms">
+      {
+        platforms.map((platform) => (
+          <article class="card" aria-labelledby={`download-${platform.id}`}>
+            <h3 id={`download-${platform.id}`}>{platform.label}</h3>
+            <div class="actions">
+              <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap>
+                <DownloadIcon />
+                {platform.installer.label}
+              </a>
+              <a class="btn btn-ghost" href={platform.archive.href} download data-cuelume-tap data-cuelume-emphasis="subtle">
+                {platform.archive.label}
+              </a>
+            </div>
+            <ul class="requirements" aria-label={`${t('download.requirements')} — ${platform.label}`}>
+              {platform.requirements.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    {
+      checksums.length > 0 && (
+        <details class="checksums" data-sound-disclosure>
+          <summary>{t('download.checksums')}</summary>
+          <dl>
+            {checksums.map((file) => (
+              <div>
+                <dt>{file.name}</dt>
+                <dd><code>{file.sha256}</code></dd>
+              </div>
+            ))}
+          </dl>
+        </details>
+      )
+    }
   </div>
 </section>
 
 <style>
+  .platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-4);
+  }
+
   .card {
     display: grid;
-    gap: var(--space-10);
-    padding: clamp(var(--space-8), 5vw, var(--space-16));
+    align-content: start;
+    gap: var(--space-6);
+    padding: clamp(var(--space-6), 4vw, var(--space-10));
     background: var(--bg-raised);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
     box-shadow: 0 30px 60px -40px rgb(26 22 32 / 0.35);
   }
 
-  @media (min-width: 64rem) {
-    .card {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: var(--space-24);
-    }
+  h3 {
+    font-size: var(--fs-h3);
+    line-height: 1.1;
   }
 
-  .copy {
-    display: grid;
-    gap: var(--space-4);
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
   }
 
-  .lead {
-    color: var(--ink-2);
-    font-size: var(--fs-lead);
-  }
-
-  .action {
-    display: grid;
-    gap: var(--space-6);
-    justify-items: start;
-  }
-
-  .facts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
-    gap: var(--space-4);
-    width: 100%;
-    margin: 0;
-  }
-
-  .facts div {
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--border-subtle);
-  }
-
-  .facts .sha {
-    grid-column: 1 / -1;
-  }
-
-  dt {
-    color: var(--ink-3);
-    font-size: var(--fs-small);
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  dd {
-    margin: var(--space-2) 0 0;
-    overflow-wrap: anywhere;
-    font-weight: 500;
-  }
-
-  .sha code {
-    font-size: 0.8125rem;
-    color: var(--ink-2);
-  }
-
-  .btn-lg {
+  .actions .btn {
     white-space: normal;
+  }
+
+  .requirements {
+    margin: 0;
+    padding: var(--space-4) 0 0;
+    border-top: 1px solid var(--border-subtle);
+    list-style: none;
+    color: var(--ink-2);
+  }
+
+  .requirements li {
+    display: flex;
+    gap: var(--space-2);
+    align-items: baseline;
+    padding-block: 0.25rem;
+  }
+
+  .requirements li::before {
+    content: '';
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-light-blue);
+    transform: translateY(-0.1em);
+  }
+
+  .checksums {
+    margin-top: var(--space-8);
+    color: var(--ink-2);
+    font-size: var(--fs-small);
+  }
+
+  .checksums summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .checksums dl {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-4) 0 0;
+  }
+
+  .checksums dd {
+    margin: 0.25rem 0 0;
+    overflow-wrap: anywhere;
   }
 </style>
