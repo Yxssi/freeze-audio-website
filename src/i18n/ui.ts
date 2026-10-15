@@ -10,9 +10,9 @@ export const defaultLang: Lang = 'en';
 export const ui = {
   en: {
     'meta.title':
-      'Freeze Audio by sheezy — free reverse, freeze & stutter plugin (AU, VST3) for macOS and Windows',
+      'Freeze Audio — free reverse & freeze plugin for macOS & Windows',
     'meta.description':
-      'Freeze records the last seconds of your track and replays them backwards, frozen, stretched, tape-stopped, as grains or stutters. Free VST3 and Audio Unit for macOS 12+ and Windows 10/11.',
+      'Replay the last seconds of your track backwards, frozen, stretched, tape-stopped, as grains or stutters, with freezes that follow your tempo. Free VST3 & AU for macOS and Windows.',
     'meta.ogAlt': 'Freeze Audio by sheezy — plugin interface and tagline',
     'meta.skip': 'Skip to content',
     'meta.jsonLdSubCategory': 'Audio effect plugin (VST3, Audio Unit)',
@@ -111,9 +111,9 @@ export const ui = {
   },
   fr: {
     'meta.title':
-      'Freeze Audio by sheezy — plugin gratuit reverse, freeze et stutter (AU, VST3) pour macOS et Windows',
+      'Freeze Audio — plugin gratuit de reverse et freeze pour macOS et Windows',
     'meta.description':
-      'Freeze enregistre les dernières secondes de votre piste et les rejoue à l’envers, gelées, ralenties, en arrêt de bande, en grains ou en stutter. VST3 et Audio Unit gratuits pour macOS 12+ et Windows 10/11.',
+      'Rejouez les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande, en grains ou en stutter, avec des gels calés sur votre tempo. VST3 et AU gratuits pour macOS et Windows.',
     'meta.ogAlt': 'Freeze Audio by sheezy — interface du plugin et slogan',
     'meta.skip': 'Aller au contenu',
     'meta.jsonLdSubCategory': 'Plugin d’effet audio (VST3, Audio Unit)',

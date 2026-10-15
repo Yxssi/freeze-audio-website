@@ -31,8 +31,8 @@ for (let i = 0; i <= 200; i++) {
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <rect width="1200" height="630" fill="#f6f5fa"/>
   <g transform="translate(72 64) scale(1.3)">${wordmark}</g>
-  <text x="72" y="270" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">Rejouez le passé</text>
-  <text x="72" y="342" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">de votre son.</text>
+  <text x="72" y="270" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">Replay the last</text>
+  <text x="72" y="342" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="64" font-weight="600" letter-spacing="-2.5" fill="#1a1620">seconds of your track.</text>
   <text x="72" y="410" font-family="Avenir Next, Helvetica Neue, sans-serif" font-size="24" font-weight="500" fill="#4a4254">VST3 &amp; AU · macOS &amp; Windows · Free</text>
 
   <rect x="680" y="96" width="456" height="340" rx="20" fill="#1e1a24"/>
