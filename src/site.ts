@@ -1,5 +1,5 @@
 export const site = {
-  url: 'https://example.com',
+  url: 'https://freeze-audio.fly.dev',
   name: 'Freeze Audio by sheezy',
   author: 'sheezy',
 } as const;
