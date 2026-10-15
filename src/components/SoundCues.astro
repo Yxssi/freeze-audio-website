@@ -1,5 +1,5 @@
 <script>
-  import { bind, play, setEnabled, unlock } from 'cuelume';
+  import { bind, play, setEnabled, setTheme, unlock } from 'cuelume';
 
   const storageKey = 'freeze-ui-sound';
   const switchOffDelayMs = 160;
@@ -8,9 +8,9 @@
 
   function readPreference(): boolean {
     try {
-      return localStorage.getItem(storageKey) !== 'off';
+      return localStorage.getItem(storageKey) === 'on';
     } catch {
-      return true;
+      return false;
     }
   }
 
@@ -27,6 +27,7 @@
   }
 
   let enabled = readPreference();
+  setTheme('bubble');
   setEnabled(enabled);
   reflect(enabled);
   bind();

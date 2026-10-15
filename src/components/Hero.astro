@@ -27,7 +27,7 @@ const home = homePath(lang);
       <div class="cta-row">
         {
           release.platforms.map((platform) => (
-            <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap>
+            <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap="success">
               <DownloadIcon />
               {t('hero.cta', { platform: platform.label })}
             </a>

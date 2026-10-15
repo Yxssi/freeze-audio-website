@@ -60,7 +60,7 @@ const checksums = platforms
           <article class="card" aria-labelledby={`download-${platform.id}`}>
             <h3 id={`download-${platform.id}`}>{platform.label}</h3>
             <div class="actions">
-              <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap>
+              <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap="success">
                 <DownloadIcon />
                 {platform.installer.label}
               </a>
