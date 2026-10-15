@@ -1,4 +1,3 @@
-// Generates public/og.png (1200×630) from an SVG composition. Run: npm run og
 import sharp from 'sharp';
 
 const e = 'M71 49c10 1 20 0 30-2 1-10-7-17-16-17-10 0-17 9-17 19s7 18 17 18c6 0 11-3 14-7';
