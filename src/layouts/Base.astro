@@ -1,7 +1,6 @@
 ---
 import '@fontsource-variable/inter-tight/wght.css';
 import '@fontsource/instrument-serif/latin-400-italic.css';
-// Resolved to content-hashed URLs so the preloads below survive rebuilds.
 import interTightLatin from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
 import instrumentSerifLatin from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
 import '../styles/global.css';
@@ -51,9 +50,6 @@ const alternateFr = new URL('/fr/', site.url).href;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Both faces are on the LCP path: the hero H1 carries an Instrument
-         Serif accent span. Preloading starts them before the inlined
-         @font-face rules are parsed. -->
     <link
       rel="preload"
       href={interTightLatin}

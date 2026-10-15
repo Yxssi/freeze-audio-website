@@ -104,8 +104,6 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
   }
 
   .gatekeeper {
-    /* Structural width, not a measure: keeps the xattr command on one line.
-       The prose inside is capped at --measure. */
     max-width: 52rem;
     margin-top: var(--space-10);
     padding: var(--space-8) var(--space-6);
@@ -132,8 +130,6 @@ const zipName = release.downloadPath.split('/').pop() ?? '';
     margin-top: var(--space-3);
     padding: var(--space-3) var(--space-4);
     font-size: 0.9rem;
-    /* A shell command must never wrap: a line break would be copied as part
-       of the command. Overrides the shared `code` overflow-wrap. */
     white-space: pre;
     overflow-wrap: normal;
     overflow-x: auto;

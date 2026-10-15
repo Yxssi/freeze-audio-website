@@ -1,19 +1,10 @@
-/* ==========================================================================
-   Freeze Audio — tokens & base styles
-   Structure from the "North" reference (see DESIGN.md), colours from the
-   Freeze palette. Every text/background pair is documented with its WCAG
-   ratio in DESIGN.md — re-check there before introducing a new pair.
-   ========================================================================== */
-
 :root {
-  /* Source palette (mid tones: never white text on these) */
   --color-grey-olive: #808d8e;
   --color-dusty-lavender: #766c7f;
   --color-amethyst: #947eb0;
   --color-lavender-grey: #a3a5c3;
   --color-light-blue: #a9d2d5;
 
-  /* Derived neutrals — light */
   --bg: #f6f5fa;
   --bg-raised: #ffffff;
   --bg-tint: #eef6f7;
@@ -23,7 +14,6 @@
   --ink-3: #5c5468;
   --accent-ink: #5e4a7a;
 
-  /* Derived neutrals — dark section / plugin UI */
   --bg-dark: #2a2530;
   --bg-dark-2: #1e1a24;
   --line-dark: #3a3442;
@@ -32,14 +22,12 @@
   --accent-on-dark: var(--color-light-blue);
   --amethyst-light: #b7a6cc;
 
-  /* Borders */
   --border-subtle: #e3e1ea;
   --border-strong: var(--color-lavender-grey);
   --border-ui: var(--color-dusty-lavender);
 
   --focus-ring: var(--ink);
 
-  /* Type */
   --font-sans: 'Inter Tight Variable', 'Inter Tight Fallback', system-ui, sans-serif;
   --font-accent: 'Instrument Serif', 'Instrument Serif Fallback', Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -47,19 +35,14 @@
   --fs-h1: clamp(2.75rem, 1.35rem + 4.6vw, 5.25rem);
   --fs-h2: clamp(2.125rem, 1.45rem + 2.4vw, 3.25rem);
   --fs-h3: clamp(1.625rem, 1.2rem + 1.4vw, 2.5rem);
-  /* Two-tier card headings (Phase 3 decision): feature cards vs supporting cards */
   --fs-h3-card-lg: clamp(1.5rem, 1.35rem + 0.5vw, 1.75rem);
   --fs-h3-card: clamp(1.25rem, 1.15rem + 0.35vw, 1.375rem);
   --fs-body: 1rem;
   --fs-lead: clamp(1.125rem, 1rem + 0.4vw, 1.3125rem);
   --fs-small: 0.875rem;
 
-  /* Measure (line length). 50ch ≈ 66 characters in Inter Tight, whose `ch`
-     is ~1.33× its average character width — see docs/DESIGN.md. Applied to
-     the text-bearing element so the character count holds at any font size. */
   --measure: 50ch;
 
-  /* Spacing (4px base) */
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
@@ -84,12 +67,6 @@
   --gutter: clamp(1.25rem, 4vw, 3.5rem);
 }
 
-/* Metric-matched fallbacks (Phase 6). Inter Tight and Instrument Serif are
-   much narrower than the system faces, so text reflows — and the hero loses
-   a line — when the webfont swaps in. These overrides give the fallback the
-   same metrics, so nothing moves. Values are measured, not estimated
-   (docs/DESIGN.md, Phase 6). Tuned to the macOS faces: the plugin is
-   macOS-only, so that is effectively the whole audience. */
 @font-face {
   font-family: 'Inter Tight Fallback';
   src: local('Avenir Next'), local('Helvetica Neue'), local('Arial');
@@ -161,13 +138,13 @@ h3 {
 h1 {
   font-size: var(--fs-h1);
   line-height: 1.05;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.035em;
 }
 
 h2 {
   font-size: var(--fs-h2);
   line-height: 1.1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.035em;
 }
 
 h3 {
@@ -255,12 +232,10 @@ kbd {
   font-size: var(--fs-lead);
 }
 
-/* Eyebrow excluded: it is a 14px uppercase label, not prose. */
 .section-head p:not(.eyebrow) {
   max-width: var(--measure);
 }
 
-/* Pill buttons: amethyst fill + ink text = 4.98:1; fill vs --bg = 3.30:1 */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -279,13 +254,13 @@ kbd {
 }
 
 .btn-primary {
-  background: var(--color-amethyst);
-  color: var(--ink);
+  background: var(--accent-ink);
+  color: var(--ink-inverse);
 }
 
 .btn-primary:hover {
-  background: var(--color-light-blue);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--ink-inverse);
 }
 
 .btn-ghost {

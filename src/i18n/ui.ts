@@ -29,9 +29,9 @@ export const ui = {
     'hero.eyebrow': 'Free Audio Unit plugin for macOS · v1.0.0',
     'hero.title.before': 'Replay the ',
     'hero.title.accent': 'last seconds',
-    'hero.title.after': ' of your track — backwards, frozen, slowed.',
+    'hero.title.after': ' of your track.',
     'hero.lead':
-      'The sound you just heard is already behind the playhead. Freeze keeps the last 8 seconds of your signal in memory and turns them into reverse swells, frozen pads, tape stops and granular clouds — live, in your host. No bounces, no clip editing, no effect chain.',
+      'Freeze keeps the last 8 seconds of your signal in memory and replays them backwards, frozen, slowed, tape-stopped or as a granular cloud — live, in your host. No bounces, no clip editing, no effect chain.',
     'hero.ctaDownload': 'Download Freeze {version} — Free',
     'hero.ctaGuide': 'Install guide',
     'hero.reassure': 'No account. Uninstall = delete one file.',
@@ -39,8 +39,15 @@ export const ui = {
     'hero.req.macos': 'macOS {min} or later',
     'hero.req.cpu': 'Apple Silicon & Intel',
     'hero.req.format': 'Audio Unit (AU)',
-    'hero.marquee.pause': 'Pause scrolling',
-    'hero.marquee.resume': 'Resume scrolling',
+    'hero.shot.alt':
+      'Freeze plugin interface: mode strip with Reverse, Freeze (selected), Stretch, Tape and Grain; six knobs for Size, Warp, Feedback, Tone, Mix and Output; waveform scope and FREEZE button.',
+
+    'demo.eyebrow': 'Listen',
+    'demo.title.before': 'Hear the ',
+    'demo.title.accent': 'difference.',
+    'demo.lead': 'Same loop, twice: first dry, then through Freeze.',
+    'demo.dry': 'Dry',
+    'demo.wet': 'With Freeze',
 
     'engines.eyebrow': 'How does it work?',
     'engines.title.before': 'One buffer, ',
@@ -64,23 +71,6 @@ export const ui = {
       'Up to 8 windowed grains read backwards and scattered across the window.',
     'engines.grain.warp':
       'Warp sets density (2 to 28 grains/s) and grain length.',
-
-    'showcase.eyebrow': 'What does it look like?',
-    'showcase.title.before': 'Everything in ',
-    'showcase.title.accent': 'a single frame.',
-    'showcase.alt':
-      'Freeze plugin interface: mode strip with Reverse, Freeze (selected), Stretch, Tape and Grain; six knobs for Size, Warp, Feedback, Tone, Mix and Output; waveform scope and FREEZE button.',
-    'showcase.caption':
-      'Interface capture, Freeze mode selected (no input signal).',
-    'showcase.modes.title': 'Mode strip',
-    'showcase.modes.body':
-      'All five engines just one click away, with the active mode highlighted.',
-    'showcase.knobs.title': 'Six knobs',
-    'showcase.knobs.body':
-      'Size, Warp, Feedback, Tone, Mix and Output. Double-click resets to the default value.',
-    'showcase.scope.title': 'Live scope',
-    'showcase.scope.body':
-      'The processed waveform is visible in real time, with the FREEZE button to re-capture the past.',
 
     'controls.eyebrow': 'Parameters',
     'controls.title.before': 'Few controls, ',
@@ -218,9 +208,9 @@ export const ui = {
     'hero.eyebrow': 'Plugin Audio Unit gratuit pour macOS · v1.0.0',
     'hero.title.before': 'Rejouez les ',
     'hero.title.accent': 'dernières secondes',
-    'hero.title.after': ' de votre piste — à l’envers, gelées, ralenties.',
+    'hero.title.after': ' de votre piste.',
     'hero.lead':
-      'Le son que vous venez d’entendre est déjà derrière la tête de lecture. Freeze garde en mémoire les 8 dernières secondes de votre signal et les transforme en nappes inversées, en gel, en arrêts de bande et en nuages granulaires — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
+      'Freeze garde en mémoire les 8 dernières secondes de votre signal et les rejoue à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
     'hero.ctaDownload': 'Télécharger Freeze {version} — Gratuit',
     'hero.ctaGuide': 'Guide d’installation',
     'hero.reassure': 'Sans compte. Désinstaller = supprimer un seul fichier.',
@@ -228,8 +218,15 @@ export const ui = {
     'hero.req.macos': 'macOS {min} ou plus récent',
     'hero.req.cpu': 'Apple Silicon & Intel',
     'hero.req.format': 'Audio Unit (AU)',
-    'hero.marquee.pause': 'Mettre en pause le défilement',
-    'hero.marquee.resume': 'Relancer le défilement',
+    'hero.shot.alt':
+      'Interface du plugin Freeze : bandeau des modes Reverse, Freeze (sélectionné), Stretch, Tape et Grain ; six potentiomètres Size, Warp, Feedback, Tone, Mix et Output ; scope de forme d’onde et bouton FREEZE.',
+
+    'demo.eyebrow': 'Écouter',
+    'demo.title.before': 'Entendez la ',
+    'demo.title.accent': 'différence.',
+    'demo.lead': 'La même boucle, deux fois : d’abord sèche, puis à travers Freeze.',
+    'demo.dry': 'Sec',
+    'demo.wet': 'Avec Freeze',
 
     'engines.eyebrow': 'Comment ça marche ?',
     'engines.title.before': 'Une mémoire tampon, ',
@@ -253,23 +250,6 @@ export const ui = {
       'Jusqu’à 8 grains fenêtrés lus à l’envers, semés dans la fenêtre.',
     'engines.grain.warp':
       'Warp règle la densité (2 à 28 grains/s) et la longueur des grains.',
-
-    'showcase.eyebrow': 'A quoi ça ressemble ?',
-    'showcase.title.before': 'Toutes les fonctionnalités dans ',
-    'showcase.title.accent': 'une seule fenêtre.',
-    'showcase.alt':
-      'Interface du plugin Freeze : bandeau des modes Reverse, Freeze (sélectionné), Stretch, Tape et Grain ; six potentiomètres Size, Warp, Feedback, Tone, Mix et Output ; scope de forme d’onde et bouton FREEZE.',
-    'showcase.caption':
-      'Capture de l’interface, mode Freeze sélectionné (sans signal en entrée).',
-    'showcase.modes.title': 'Bandeau des modes',
-    'showcase.modes.body':
-      'Les 5 moteurs à portée de clic, le mode actif est surligné.',
-    'showcase.knobs.title': 'Six potentiomètres',
-    'showcase.knobs.body':
-      'Size, Warp, Feedback, Tone, Mix et Output. Double-clic : retour à la valeur par défaut.',
-    'showcase.scope.title': 'Scope en direct',
-    'showcase.scope.body':
-      'Visualisation de l\'onde du signal traité et du bouton FREEZE pour re-geler le passé.',
 
     'controls.eyebrow': 'Paramètres',
     'controls.title.before': 'Peu de réglages, ',
@@ -418,7 +398,6 @@ export function localeTag(lang: Lang): string {
   return lang === 'fr' ? 'fr_FR' : 'en_US';
 }
 
-/** Home path for a locale (default English has no prefix). */
 export function homePath(lang: Lang): string {
   return lang === defaultLang ? '/' : `/${lang}/`;
 }

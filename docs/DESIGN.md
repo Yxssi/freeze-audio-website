@@ -164,3 +164,18 @@ Remaining (product-level, not page-level): Apple notarization would remove N1's 
 |---|---|---|---|
 | Marquee scroll + pause | CSS animation; pause on hover, on toggle checkbox (keyboard/touch), on `prefers-reduced-motion`; label swaps Pause↔Resume; focus ring on toggle | none — accessible as built | healthy |
 | Link/button hover | Color shift + underline on nav links; button styles via `.btn` tokens | none | healthy |
+## Design challenge pass — 2026-10-15
+
+Review by refactoring-ui, steve-jobs-design-review and web-typography against music/plugin sites (Output, Teenage Engineering, Epidemic Sound, Deezer). Score 6/10 before.
+
+| Change | Why | Status |
+|---|---|---|
+| Hero in two columns with the plugin UI above the fold; H1 shortened to "Replay the last seconds of your track." (steps down from the full-width ramp: `clamp(2.5rem, 1.2rem + 3.4vw, 4.25rem)`) | Product was first visible ~2000px down | shipped |
+| Marquee, requirement pills and Showcase section removed | Duplicated the H1, the hero shot and the Engines cards | shipped (supersedes V4 "marquee kept") |
+| `Demo.astro` + `demos` in `src/site.ts` (native `<audio>`, dry vs Freeze, no JS) | An audio effect page with no audio | wired, hidden until files exist in `public/audio/` |
+| Nav: Download moved to the far right, DOM order matches visual order | Primary CTA floated in the centre | shipped |
+| Display tracking h1/h2 −0.05/−0.045em → −0.035em | Letters touching at display sizes | shipped |
+| Primary button: `--accent-ink` fill, inverse text | Amethyst fill with dark text looked washed out | shipped |
+| Footer wordmark `clamp(3rem, 7vw, 5rem)` | Bigger than any content element | shipped |
+
+Open: new plugin capture with a signal (scope is flat, French help line on the EN page), dry/wet audio files.

@@ -23,6 +23,7 @@ Node 22.12 or newer.
 
 - **Site URL**: `src/site.ts` → `site.url` (placeholder `https://example.com`). Feeds canonical, Open Graph, JSON-LD, sitemap and `robots.txt`.
 - **Archive**: `public/downloads/FreezeAudio-1.0.0-macOS.zip`. For a new version, change `release.version` and `release.downloadPath` in `src/site.ts`, then `npm run zip` (or `COMPONENT=/path/Freeze.component npm run zip`) and adjust `OUT` in `scripts/zip.sh`. Size and SHA-256 on the page are recalculated at build time.
+- **Audio demos**: put dry and processed files in `public/audio/`, then list them in `demos` in `src/site.ts` (`engine`, `dry`, `wet`). The "Listen" section stays hidden while the list is empty.
 - **Plugin visual**: `src/assets/freeze-ui.png` (1400×800). To regenerate from the installed plugin: run `../freeze/build/test_ui`, then copy `/tmp/freeze_ui_freeze.png` here.
 
 Design and tokens: see `DESIGN.md`.
