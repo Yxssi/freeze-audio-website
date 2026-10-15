@@ -1,0 +1,8 @@
+node_modules
+dist
+.astro
+.git
+scripts/probes
+public/downloads/FreezeAudio-1.0.0-*
+*.log
+.DS_Store

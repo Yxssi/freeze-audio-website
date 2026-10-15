@@ -4,7 +4,8 @@ import '@fontsource/instrument-serif/latin-400-italic.css';
 import interTightLatin from '@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
 import instrumentSerifLatin from '@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2?url';
 import '../styles/global.css';
-import { site } from '../site';
+import SoundCues from '../components/SoundCues.astro';
+import { release, site } from '../site';
 import {
   defaultLang,
   isLang,
@@ -28,7 +29,7 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, site.url).href;
-const ogImage = new URL('/og.png', site.url).href;
+const ogImage = new URL(`/og.png?v=${release.version}`, site.url).href;
 const locale = localeTag(lang);
 const alternateEn = new URL('/', site.url).href;
 const alternateFr = new URL('/fr/', site.url).href;
@@ -89,5 +90,6 @@ const alternateFr = new URL('/fr/', site.url).href;
   <body>
     <a class="skip-link" href="#content">{t('meta.skip')}</a>
     <slot />
+    <SoundCues />
   </body>
 </html>

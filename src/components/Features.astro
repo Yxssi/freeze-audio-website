@@ -1,0 +1,113 @@
+---
+import {
+  defaultLang,
+  isLang,
+  useTranslations,
+  type Lang,
+} from '../i18n/ui';
+
+const lang: Lang = isLang(Astro.currentLocale) ? Astro.currentLocale : defaultLang;
+const t = useTranslations(lang);
+
+const modes = [
+  { name: 'Reverse', body: t('features.reverse') },
+  { name: 'Freeze', body: t('features.freeze') },
+  { name: 'Stretch', body: t('features.stretch') },
+  { name: 'Tape', body: t('features.tape') },
+  { name: 'Grain', body: t('features.grain') },
+  { name: 'Stutter', body: t('features.stutter') },
+];
+
+const extras = [
+  { title: t('features.controls.title'), body: t('features.controls.body') },
+  { title: t('features.presets.title'), body: t('features.presets.body') },
+  { title: t('features.display.title'), body: t('features.display.body') },
+];
+---
+
+<section class="section" id="features" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">{t('features.eyebrow')}</p>
+      <h2 id="features-title">
+        {t('features.title.before')}<span class="accent">{t('features.title.accent')}</span>
+      </h2>
+    </div>
+
+    <ul class="modes">
+      {
+        modes.map((mode) => (
+          <li>
+            <h3>{mode.name}</h3>
+            <p>{mode.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <dl class="extras">
+      {
+        extras.map((extra) => (
+          <div>
+            <dt>{extra.title}</dt>
+            <dd>{extra.body}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .modes li {
+    display: grid;
+    align-content: start;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+  }
+
+  h3 {
+    font-size: var(--fs-h3-card-lg);
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+  }
+
+  .modes p {
+    color: var(--ink-2);
+  }
+
+  .extras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-4) var(--space-8);
+    margin: var(--space-12) 0 0;
+  }
+
+  .extras div {
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border-strong);
+  }
+
+  dt {
+    font-size: var(--fs-h3-card);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  dd {
+    margin: var(--space-2) 0 0;
+    color: var(--ink-2);
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import pluginUi from '../assets/freeze-ui.png';
+import DownloadIcon from './DownloadIcon.astro';
 import { release } from '../site';
 import {
   defaultLang,
@@ -18,24 +19,23 @@ const home = homePath(lang);
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero-inner">
     <div class="copy">
-      <p class="eyebrow">{t('hero.eyebrow')}</p>
+      <p class="eyebrow">{t('hero.eyebrow', { version: release.version })}</p>
       <h1 id="hero-title">
         {t('hero.title.before')}<span class="accent">{t('hero.title.accent')}</span>{t('hero.title.after')}
       </h1>
       <p class="lead">{t('hero.lead')}</p>
       <div class="cta-row">
-        <a class="btn btn-primary btn-lg" href={release.downloadPath} download>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"></path>
-          </svg>
-          {t('hero.ctaDownload', { version: release.version })}
-        </a>
-        <a class="btn btn-ghost btn-lg" href={`${home}#install`}>{t('hero.ctaGuide')}</a>
+        {
+          release.platforms.map((platform) => (
+            <a class="btn btn-primary btn-lg" href={platform.installer.href} download data-cuelume-tap="success">
+              <DownloadIcon />
+              {t('hero.cta', { platform: platform.label })}
+            </a>
+          ))
+        }
       </div>
-      <p class="reassure">{t('hero.reassure')}</p>
-      <p class="meta">
-        <span class="sr-only">{t('hero.requirements')} : </span>
-        {t('hero.req.macos', { min: release.minMacOS })} · {t('hero.req.cpu')} · {t('hero.req.format')}
+      <p class="reassure">
+        {t('hero.reassure')} <a href={`${home}#download`} data-cuelume-navigate data-cuelume-emphasis="subtle">{t('hero.otherFiles')}</a>
       </p>
     </div>
 
@@ -43,7 +43,7 @@ const home = homePath(lang);
       <Image
         class="shot"
         src={pluginUi}
-        widths={[600, 900, 1200]}
+        widths={[600, 900, 1400]}
         sizes="(min-width: 64rem) 52vw, calc(100vw - 2.5rem)"
         alt={t('hero.shot.alt')}
         loading="eager"
@@ -89,14 +89,9 @@ const home = homePath(lang);
     margin-top: var(--space-2);
   }
 
-  .reassure,
-  .meta {
+  .reassure {
     color: var(--ink-3);
     font-size: var(--fs-small);
-  }
-
-  .copy .reassure {
-    margin-bottom: calc(-1 * var(--space-4));
   }
 
   .shot {
@@ -106,6 +101,15 @@ const home = homePath(lang);
     box-shadow:
       0 0 0 1px var(--line-dark),
       0 40px 80px -30px rgb(26 22 32 / 0.55);
+  }
+
+  @media (max-width: 30rem) {
+    .cta-row {
+      width: 100%;
+    }
+    .cta-row .btn {
+      flex: 1 1 100%;
+    }
   }
 
   @media (min-width: 64rem) {

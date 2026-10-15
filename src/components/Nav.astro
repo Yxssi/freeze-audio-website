@@ -1,6 +1,5 @@
 ---
 import Wordmark from './Wordmark.astro';
-import { release } from '../site';
 import {
   defaultLang,
   homePath,
@@ -20,11 +19,10 @@ const home = homePath(lang);
       <Wordmark />
     </a>
     <div class="nav-end">
-      <nav class="nav-links" aria-label={t('nav.sections')}>
+      <nav class="nav-links" aria-label={t('nav.sections')} data-cuelume-emphasis="subtle">
         <ul>
-          <li><a href={`${home}#engines`}>{t('nav.engines')}</a></li>
-          <li><a href={`${home}#install`}>{t('nav.install')}</a></li>
-          <li><a href={`${home}#faq`}>{t('nav.faq')}</a></li>
+          <li><a href={`${home}#features`} data-cuelume-navigate>{t('nav.features')}</a></li>
+          <li><a href={`${home}#install`} data-cuelume-navigate>{t('nav.install')}</a></li>
         </ul>
       </nav>
       <nav class="lang" aria-label={t('nav.lang')}>
@@ -46,8 +44,25 @@ const home = homePath(lang);
           FR
         </a>
       </nav>
+      <button
+        class="sound"
+        type="button"
+        data-sound-toggle
+        aria-pressed="false"
+        aria-label={t('nav.sound')}
+        title={t('nav.sound')}
+      >
+        <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" />
+          <path class="wave" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11" />
+        </svg>
+        <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" />
+          <path class="wave" d="M16 9.5l5 5M21 9.5l-5 5" />
+        </svg>
+      </button>
     </div>
-    <a class="btn btn-primary nav-cta" href={release.downloadPath} download>
+    <a class="btn btn-primary nav-cta" href={`${home}#download`} data-cuelume-navigate>
       {t('nav.download')}
     </a>
   </div>
@@ -137,6 +152,43 @@ const home = homePath(lang);
 
   .lang a[aria-current='page'] {
     color: var(--ink);
+  }
+
+  .sound {
+    display: inline-grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+
+  .sound:hover {
+    color: var(--ink);
+    background: var(--border-subtle);
+  }
+
+  .sound svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sound path:first-child {
+    fill: currentColor;
+  }
+
+  .sound[aria-pressed='true'] .sound-off,
+  .sound[aria-pressed='false'] .sound-on {
+    display: none;
   }
 
   @media (max-width: 47.99rem) {

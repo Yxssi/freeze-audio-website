@@ -10,37 +10,34 @@ export const defaultLang: Lang = 'en';
 export const ui = {
   en: {
     'meta.title':
-      'Freeze Audio by sheezy — Audio Unit reverse, freeze & granular effect for Mac',
+      'Freeze Audio — free reverse & freeze plugin for macOS & Windows',
     'meta.description':
-      'Freeze replays the last seconds of your track in reverse, frozen, stretched, tape-stopped or as a granular cloud. Free Audio Unit for macOS 12+, Apple Silicon and Intel.',
+      'Replay the last seconds of your track backwards, frozen, stretched, tape-stopped, as grains or stutters, with freezes that follow your tempo. Free VST3 & AU for macOS and Windows.',
     'meta.ogAlt': 'Freeze Audio by sheezy — plugin interface and tagline',
     'meta.skip': 'Skip to content',
-    'meta.jsonLdSubCategory': 'Audio effect plugin',
-    'meta.processor': 'Apple Silicon (arm64) or Intel (x86_64)',
+    'meta.jsonLdSubCategory': 'Audio effect plugin (VST3, Audio Unit)',
+    'meta.sizeKb': 'KB',
+    'meta.sizeMb': 'MB',
 
     'nav.home': 'Freeze Audio by sheezy — home',
     'nav.download': 'Download',
     'nav.sections': 'Sections',
-    'nav.engines': 'Engines',
+    'nav.features': 'Features',
     'nav.install': 'Install',
-    'nav.faq': 'FAQ',
     'nav.lang': 'Language',
+    'nav.sound': 'Interface sounds',
 
-    'hero.eyebrow': 'Free Audio Unit plugin for macOS · v1.0.0',
+    'hero.eyebrow': 'Free plugin · VST3 & AU · v{version}',
     'hero.title.before': 'Replay the ',
     'hero.title.accent': 'last seconds',
     'hero.title.after': ' of your track.',
     'hero.lead':
-      'Freeze keeps the last 8 seconds of your signal in memory and replays them backwards, frozen, slowed, tape-stopped or as a granular cloud — live, in your host. No bounces, no clip editing, no effect chain.',
-    'hero.ctaDownload': 'Download Freeze {version} — Free',
-    'hero.ctaGuide': 'Install guide',
-    'hero.reassure': 'No account. Uninstall = delete one file.',
-    'hero.requirements': 'Requirements',
-    'hero.req.macos': 'macOS {min} or later',
-    'hero.req.cpu': 'Apple Silicon & Intel',
-    'hero.req.format': 'Audio Unit (AU)',
+      'Freeze is a time effect: it keeps recording the recent past of your track and plays it back differently — reversed, frozen, slowed, tape-stopped, as grains or stutters.',
+    'hero.cta': 'Download for {platform}',
+    'hero.otherFiles': 'All files and requirements',
+    'hero.reassure': 'Free. No account. macOS 12+ and Windows 10/11.',
     'hero.shot.alt':
-      'Freeze plugin interface: mode strip with Reverse, Freeze (selected), Stretch, Tape and Grain; six knobs for Size, Warp, Feedback, Tone, Mix and Output; waveform scope and FREEZE button.',
+      'Freeze plugin interface in Freeze mode: six mode buttons, live waveform display, FREEZE and STOP buttons, Size, Motion, Feedback, Tone, Mix and Gain knobs, and the EVERY row set to 1/4.',
 
     'demo.eyebrow': 'Listen',
     'demo.title.before': 'Hear the ',
@@ -49,177 +46,99 @@ export const ui = {
     'demo.dry': 'Dry',
     'demo.wet': 'With Freeze',
 
-    'engines.eyebrow': 'How does it work?',
-    'engines.title.before': 'One buffer, ',
-    'engines.title.accent': 'five ways',
-    'engines.title.after': ' to read it back.',
-    'engines.lead':
-      'Catch the tail of a vocal: hit FREEZE, and it hangs there as a pad. Freeze continuously records your signal — each engine replays that past differently, and the FREEZE button re-captures the current fragment instantly.',
-    'engines.reverse.body':
-      'The recent past played backwards, looping continuously over the Size window.',
-    'engines.reverse.warp': 'Warp sets reverse speed (0.25× to 2.75×).',
-    'engines.freeze.body':
-      'A captured fragment replayed in an infinite ping-pong loop.',
-    'engines.freeze.warp': 'Warp sets sweep speed (0.25× to 1.5×).',
-    'engines.stretch.body':
-      'The past crawls by in slow motion, stretched across your track.',
-    'engines.stretch.warp': 'Warp sets the slowdown (0.05× to 0.95×).',
-    'engines.tape.body':
-      'Tape stop: playback decelerates, reverses, then accelerates again, cycle after cycle.',
-    'engines.tape.warp': 'Warp and Size set the cycle length.',
-    'engines.grain.body':
-      'Up to 8 windowed grains read backwards and scattered across the window.',
-    'engines.grain.warp':
-      'Warp sets density (2 to 28 grains/s) and grain length.',
-
-    'controls.eyebrow': 'Parameters',
-    'controls.title.before': 'Few controls, ',
-    'controls.title.accent': 'but all useful.',
-    'controls.size.body': 'Length of the past window the engine reads.',
-    'controls.warp.body': 'Speed modulation, unique to each engine.',
-    'controls.feedback.body': 'Feeds the processed signal back into the buffer.',
-    'controls.tone.body':
-      'Tilt filter on the wet signal: darker or airier.',
-    'controls.mix.body': 'Blend between dry and wet.',
-    'controls.io.body':
-      'Input and output gains (Output on the UI, Input via the host).',
-    'controls.bypass.body': 'Bypasses the effect, automatable from the host.',
-    'controls.freeze.body': 'Re-captures the current fragment instantly.',
-    'controls.range.size': '0.05 – 8 s',
-    'controls.range.percent': '0 – 100 %',
-    'controls.range.feedback': '0 – 95 %',
-    'controls.range.tone': 'LP ← center → HP',
-    'controls.range.gain': '± 24 dB',
-    'controls.range.bool': 'on / off',
-    'controls.range.button': 'button',
-    'controls.presets.title': '6 presets',
-    'controls.presets.intro':
-      'A starting point for each engine, exposed to the host as Audio Unit factory presets.',
-    'controls.presets.col.preset': 'Preset',
-    'controls.presets.col.engine': 'Engine',
-    'controls.presets.col.size': 'Size',
-    'controls.presets.col.mix': 'Mix',
-    'controls.presets.size.1': '1.0 s',
-    'controls.presets.size.2': '2.0 s',
-    'controls.presets.size.2_5': '2.5 s',
-    'controls.presets.size.3': '3.0 s',
-    'controls.presets.mix.28': '28 %',
-    'controls.presets.mix.50': '50 %',
-    'controls.presets.mix.55': '55 %',
-    'controls.presets.mix.60': '60 %',
-    'controls.presets.mix.68': '68 %',
-    'controls.presets.mix.80': '80 %',
+    'features.eyebrow': 'Features',
+    'features.title.before': 'Six ways to ',
+    'features.title.accent': 'replay the past.',
+    'features.reverse': 'The last moments played backwards, in tune.',
+    'features.freeze':
+      'Holds a pad. EVERY re-freezes on the host tempo (HOLD, 1/1 to 1/16, 1/8T).',
+    'features.stretch': 'Slow motion at the original pitch.',
+    'features.tape': 'Tape stop, spin back and restart.',
+    'features.grain': 'A cloud of reversed grains.',
+    'features.stutter': 'Captures a slice and repeats it.',
+    'features.controls.title': 'Controls',
+    'features.controls.body':
+      'Size (0.05–8 s), Warp (its role follows the mode), Feedback, Tone (low-pass ↔ high-pass), Mix, Gain (±24 dB), a Rate / Every row, FREEZE, STOP and Bypass.',
+    'features.presets.title': 'Presets',
+    'features.presets.body':
+      '19 factory presets, plus your own: save and delete them, shared between VST3 and AU.',
+    'features.display.title': 'Display',
+    'features.display.body':
+      'Live waveform with the read heads, IN / OUT meters and a help bar that explains whatever you hover.',
 
     'download.eyebrow': 'Download',
     'download.title.before': 'Freeze {version} ',
-    'download.title.accent': 'for macOS.',
-    'download.lead':
-      'A .zip archive containing Freeze.component, a universal binary for Apple Silicon and Intel. About a second to download, about two minutes to your first reverse.',
-    'download.cta': 'Download the .zip ({size} KB) — Free',
-    'download.file': 'File',
-    'download.version': 'Version',
-    'download.system': 'System',
-    'download.sha': 'SHA-256',
-    'download.systemValue': 'macOS {min}+',
+    'download.title.accent': 'for your system.',
+    'download.lead': 'Free. Pick the installer, or the .zip to copy the plugin by hand.',
+    'download.installer': 'Installer',
+    'download.archive': 'Manual install (.zip)',
+    'download.requirements': 'Requirements',
+    'download.formats': 'Formats',
+    'download.macos.os': 'macOS 12 Monterey or later',
+    'download.macos.formats': 'Audio Unit + VST3',
+    'download.macos.cpu': 'Universal: Apple Silicon and Intel',
+    'download.windows.os': 'Windows 10 or 11, 64-bit',
+    'download.windows.formats': 'VST3',
+    'download.windows.cpu': 'x64',
+    'download.checksums': 'SHA-256 checksums',
 
-    'install.eyebrow': 'How to install?',
+    'install.eyebrow': 'Install',
     'install.title.before': 'Installed in ',
-    'install.title.accent': 'three steps.',
-    'install.step1.title': 'Unzip the archive',
-    'install.step1.body':
-      'Double-click {file}: you get Freeze.component.',
-    'install.step2.title': 'Copy the plugin',
-    'install.step2.body.before':
-      'In Finder, choose Go › Go to Folder…, paste ',
-    'install.step2.body.after': ' then drop Freeze.component into it.',
-    'install.step3.title': 'Relaunch your host',
-    'install.step3.body':
-      'Restart your audio software or rescan its Audio Unit plugins. Freeze shows up as “Freeze Audio by sheezy”.',
-
-    'install.gate.title': 'First load blocked by macOS?',
-    'install.gate.body':
-      'macOS may show “‘Freeze’ can’t be opened because the developer cannot be verified.” That’s expected: Freeze is free software, signed ad hoc and not notarized yet — nothing is broken. Two ways past it:',
-    'install.gate.gui':
-      'After the first blocked load, open System Settings › Privacy & Security and click “Open Anyway”.',
-    'install.gate.term': 'Or paste this into Terminal, then relaunch your host:',
-
-    'compat.eyebrow': 'Compatibility',
-    'compat.title.before': 'Built for ',
-    'compat.title.accent': 'the Mac.',
-    'compat.lead':
-      'Freeze works in hosts that load Audio Units. Logic Pro, GarageBand and other AU hosts are compatible in principle, but have not been officially tested yet.',
-    'compat.yes': 'Supported',
-    'compat.no': 'Not supported',
-    'compat.os': 'System',
-    'compat.osValue': 'macOS {min} Monterey or later',
-    'compat.cpu': 'Processors',
-    'compat.cpuValue':
-      'Universal binary: Apple Silicon (arm64) and Intel (x86_64)',
-    'compat.format': 'Format',
-    'compat.formatValue': 'Audio Unit v2 (effect)',
-    'compat.tested': 'Tested',
-    'compat.testedValue': 'FL Studio on Mac · Apple auval validation passed',
-    'compat.unavailable': 'Not available',
-    'compat.unavailableValue': 'VST3, AAX and Windows',
-
-    'faq.eyebrow': 'FAQ',
-    'faq.title.before': 'Common ',
-    'faq.title.accent': 'questions.',
-    'faq.q1': 'How much does Freeze cost?',
-    'faq.a1':
-      'Freeze is free. Version 1.0.0 downloads directly from this page — no account, no installer, no catch.',
-    'faq.q2': 'Is there a VST3, AAX or Windows version?',
-    'faq.a2': 'No. Freeze is Audio Unit for macOS only.',
-    'faq.q3': 'My host cannot find the plugin. What should I do?',
-    'faq.a3':
-      'Make sure Freeze.component is in ~/Library/Audio/Plug-Ins/Components, then relaunch the host or rescan plugins. In FL Studio, run a new scan from the plugin manager.',
-    'faq.q4': 'Can parameters be automated?',
-    'faq.a4':
-      'Yes. Mode, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass and Freeze are exposed to the host as Audio Unit parameters.',
-    'faq.q5': 'How do I uninstall Freeze?',
-    'faq.a5':
-      'Delete Freeze.component from ~/Library/Audio/Plug-Ins/Components, then relaunch your host.',
+    'install.title.accent': 'a minute.',
+    'install.macos.step1':
+      'Open {file} and follow the installer. It installs the Audio Unit and the VST3.',
+    'install.macos.step2':
+      'Or, from the .zip, copy {component} to {componentFolder} and {vst3} to {vst3Folder}.',
+    'install.macos.step3':
+      'Rescan plugins in your DAW. Freeze shows up as “Freeze Audio by sheezy”.',
+    'install.macos.note.title': 'Blocked by macOS?',
+    'install.macos.note.body':
+      'Builds are not notarized yet. Right-click the .pkg and choose Open, or allow it in System Settings › Privacy & Security.',
+    'install.windows.step1':
+      'Run {file}. It installs the VST3 to {folder}.',
+    'install.windows.step2': 'Or, from the .zip, copy {vst3} to that folder.',
+    'install.windows.step3':
+      'Rescan plugins in your DAW. Freeze shows up as “Freeze Audio by sheezy”.',
+    'install.windows.note.title': 'SmartScreen warning?',
+    'install.windows.note.body':
+      'The installer is not signed yet. Click More info, then Run anyway.',
 
     'footer.nav': 'Footer links',
     'footer.download': 'Download Freeze {version}',
+    'footer.features': 'Features',
     'footer.install': 'Install',
-    'footer.compat': 'Compatibility',
-    'footer.faq': 'FAQ',
-    'footer.legal': 'Audio Unit for macOS · Version {version}',
+    'footer.legal': 'VST3 and Audio Unit for macOS and Windows · Version {version}',
   },
   fr: {
     'meta.title':
-      'Freeze Audio by sheezy — effet Audio Unit reverse, freeze et granulaire pour Mac',
+      'Freeze Audio — plugin gratuit de reverse et freeze pour macOS et Windows',
     'meta.description':
-      'Freeze rejoue les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire. Plugin Audio Unit gratuit pour macOS 12+, Apple Silicon et Intel.',
+      'Rejouez les dernières secondes de votre piste à l’envers, gelées, ralenties, en arrêt de bande, en grains ou en stutter, avec des gels calés sur votre tempo. VST3 et AU gratuits pour macOS et Windows.',
     'meta.ogAlt': 'Freeze Audio by sheezy — interface du plugin et slogan',
     'meta.skip': 'Aller au contenu',
-    'meta.jsonLdSubCategory': 'Plugin d’effet audio',
-    'meta.processor': 'Apple Silicon (arm64) ou Intel (x86_64)',
+    'meta.jsonLdSubCategory': 'Plugin d’effet audio (VST3, Audio Unit)',
+    'meta.sizeKb': 'Ko',
+    'meta.sizeMb': 'Mo',
 
     'nav.home': 'Freeze Audio by sheezy — accueil',
     'nav.download': 'Télécharger',
     'nav.sections': 'Sections',
-    'nav.engines': 'Moteurs',
+    'nav.features': 'Fonctions',
     'nav.install': 'Installation',
-    'nav.faq': 'FAQ',
     'nav.lang': 'Langue',
+    'nav.sound': 'Sons de l’interface',
 
-    'hero.eyebrow': 'Plugin Audio Unit gratuit pour macOS · v1.0.0',
+    'hero.eyebrow': 'Plugin gratuit · VST3 & AU · v{version}',
     'hero.title.before': 'Rejouez les ',
     'hero.title.accent': 'dernières secondes',
     'hero.title.after': ' de votre piste.',
     'hero.lead':
-      'Freeze garde en mémoire les 8 dernières secondes de votre signal et les rejoue à l’envers, gelées, ralenties, en arrêt de bande ou en nuage granulaire — en direct, dans votre hôte. Sans bounce, sans édition de clips, sans chaîne d’effets.',
-    'hero.ctaDownload': 'Télécharger Freeze {version} — Gratuit',
-    'hero.ctaGuide': 'Guide d’installation',
-    'hero.reassure': 'Sans compte. Désinstaller = supprimer un seul fichier.',
-    'hero.requirements': 'Configuration requise',
-    'hero.req.macos': 'macOS {min} ou plus récent',
-    'hero.req.cpu': 'Apple Silicon & Intel',
-    'hero.req.format': 'Audio Unit (AU)',
+      'Freeze est un effet temporel : il enregistre en continu le passé récent de votre piste et le rejoue autrement — à l’envers, gelé, ralenti, en arrêt de bande, en grains ou en stutter.',
+    'hero.cta': 'Télécharger pour {platform}',
+    'hero.otherFiles': 'Tous les fichiers et la configuration requise',
+    'hero.reassure': 'Gratuit. Sans compte. macOS 12+ et Windows 10/11.',
     'hero.shot.alt':
-      'Interface du plugin Freeze : bandeau des modes Reverse, Freeze (sélectionné), Stretch, Tape et Grain ; six potentiomètres Size, Warp, Feedback, Tone, Mix et Output ; scope de forme d’onde et bouton FREEZE.',
+      'Interface du plugin Freeze en mode Freeze : six boutons de mode, affichage de la forme d’onde en direct, boutons FREEZE et STOP, potentiomètres Size, Motion, Feedback, Tone, Mix et Gain, et rangée EVERY réglée sur 1/4.',
 
     'demo.eyebrow': 'Écouter',
     'demo.title.before': 'Entendez la ',
@@ -228,148 +147,68 @@ export const ui = {
     'demo.dry': 'Sec',
     'demo.wet': 'Avec Freeze',
 
-    'engines.eyebrow': 'Comment ça marche ?',
-    'engines.title.before': 'Une mémoire tampon, ',
-    'engines.title.accent': 'cinq façons',
-    'engines.title.after': ' de la relire.',
-    'engines.lead':
-      'Attrapez la fin d’une voix : appuyez sur FREEZE, et elle reste suspendue en nappe. Freeze enregistre en continu votre signal — chaque moteur relit ce passé autrement, et le bouton FREEZE re-gèle instantanément le fragment en cours.',
-    'engines.reverse.body':
-      'Le passé proche lu à l’envers, en boucle continue sur la fenêtre Size.',
-    'engines.reverse.warp': 'Warp règle la vitesse de recul (0,25× à 2,75×).',
-    'engines.freeze.body':
-      'Un fragment capturé puis rejoué en ping-pong infini.',
-    'engines.freeze.warp': 'Warp règle la vitesse de balayage (0,25× à 1,5×).',
-    'engines.stretch.body':
-      'Le passé défile au ralenti, comme une version ralentie de votre piste.',
-    'engines.stretch.warp': 'Warp règle le ralenti (0,05× à 0,95×).',
-    'engines.tape.body':
-      'Arrêt de bande : la lecture décélère, s’inverse, puis ré-accélère, cycle après cycle.',
-    'engines.tape.warp': 'Warp et Size fixent la durée du cycle.',
-    'engines.grain.body':
-      'Jusqu’à 8 grains fenêtrés lus à l’envers, semés dans la fenêtre.',
-    'engines.grain.warp':
-      'Warp règle la densité (2 à 28 grains/s) et la longueur des grains.',
-
-    'controls.eyebrow': 'Paramètres',
-    'controls.title.before': 'Peu de réglages, ',
-    'controls.title.accent': 'mais tous utiles.',
-    'controls.size.body':
-      'Longueur de la fenêtre de passé relue par le moteur.',
-    'controls.warp.body': 'Modulation de vitesse, propre à chaque moteur.',
-    'controls.feedback.body':
-      'Réinjecte le signal traité dans la mémoire tampon.',
-    'controls.tone.body':
-      'Filtre tilt sur le signal traité : plus sombre ou plus aérien.',
-    'controls.mix.body': 'Dosage entre signal d’origine et signal traité.',
-    'controls.io.body':
-      'Gains d’entrée et de sortie (Output sur l’interface, Input via l’hôte).',
-    'controls.bypass.body':
-      'Contourne l’effet, automatisable depuis l’hôte.',
-    'controls.freeze.body':
-      'Re-gèle instantanément le fragment en cours.',
-    'controls.range.size': '0,05 – 8 s',
-    'controls.range.percent': '0 – 100 %',
-    'controls.range.feedback': '0 – 95 %',
-    'controls.range.tone': 'LP ← centre → HP',
-    'controls.range.gain': '± 24 dB',
-    'controls.range.bool': 'on / off',
-    'controls.range.button': 'bouton',
-    'controls.presets.title': '6 presets',
-    'controls.presets.intro':
-      'Un point de départ pour chaque moteur, exposés à l’hôte comme presets factory Audio Unit.',
-    'controls.presets.col.preset': 'Preset',
-    'controls.presets.col.engine': 'Moteur',
-    'controls.presets.col.size': 'Size',
-    'controls.presets.col.mix': 'Mix',
-    'controls.presets.size.1': '1,0 s',
-    'controls.presets.size.2': '2,0 s',
-    'controls.presets.size.2_5': '2,5 s',
-    'controls.presets.size.3': '3,0 s',
-    'controls.presets.mix.28': '28 %',
-    'controls.presets.mix.50': '50 %',
-    'controls.presets.mix.55': '55 %',
-    'controls.presets.mix.60': '60 %',
-    'controls.presets.mix.68': '68 %',
-    'controls.presets.mix.80': '80 %',
+    'features.eyebrow': 'Fonctions',
+    'features.title.before': 'Six façons de ',
+    'features.title.accent': 'rejouer le passé.',
+    'features.reverse': 'Les derniers instants lus à l’envers, à la bonne hauteur.',
+    'features.freeze':
+      'Tient une nappe. EVERY re-gèle sur le tempo de l’hôte (HOLD, 1/1 à 1/16, 1/8T).',
+    'features.stretch': 'Ralenti à hauteur d’origine.',
+    'features.tape': 'Arrêt de bande, retour en arrière et redémarrage.',
+    'features.grain': 'Un nuage de grains inversés.',
+    'features.stutter': 'Capture une tranche et la répète.',
+    'features.controls.title': 'Réglages',
+    'features.controls.body':
+      'Size (0,05–8 s), Warp (son rôle suit le mode), Feedback, Tone (passe-bas ↔ passe-haut), Mix, Gain (±24 dB), une rangée Rate / Every, FREEZE, STOP et Bypass.',
+    'features.presets.title': 'Presets',
+    'features.presets.body':
+      '19 presets d’usine, plus les vôtres : enregistrez-les et supprimez-les, partagés entre VST3 et AU.',
+    'features.display.title': 'Affichage',
+    'features.display.body':
+      'Forme d’onde en direct avec les têtes de lecture, vumètres IN / OUT et une barre d’aide qui explique le contrôle survolé.',
 
     'download.eyebrow': 'Téléchargement',
     'download.title.before': 'Freeze {version} ',
-    'download.title.accent': 'pour macOS.',
-    'download.lead':
-      'Une archive .zip contenant Freeze.component, binaire universel Apple Silicon et Intel. Environ une seconde à télécharger, environ deux minutes avant votre premier reverse.',
-    'download.cta': 'Télécharger le .zip ({size} Ko) — Gratuit',
-    'download.file': 'Fichier',
-    'download.version': 'Version',
-    'download.system': 'Système',
-    'download.sha': 'SHA-256',
-    'download.systemValue': 'macOS {min}+',
+    'download.title.accent': 'pour votre système.',
+    'download.lead': 'Gratuit. Choisissez l’installeur, ou le .zip pour copier le plugin à la main.',
+    'download.installer': 'Installeur',
+    'download.archive': 'Installation manuelle (.zip)',
+    'download.requirements': 'Configuration requise',
+    'download.formats': 'Formats',
+    'download.macos.os': 'macOS 12 Monterey ou plus récent',
+    'download.macos.formats': 'Audio Unit + VST3',
+    'download.macos.cpu': 'Universel : Apple Silicon et Intel',
+    'download.windows.os': 'Windows 10 ou 11, 64 bits',
+    'download.windows.formats': 'VST3',
+    'download.windows.cpu': 'x64',
+    'download.checksums': 'Empreintes SHA-256',
 
-    'install.eyebrow': 'Comment l\'installer ?',
+    'install.eyebrow': 'Installation',
     'install.title.before': 'Installé en ',
-    'install.title.accent': 'trois étapes.',
-    'install.step1.title': 'Décompressez l’archive',
-    'install.step1.body':
-      'Double-cliquez sur {file} : vous obtenez Freeze.component.',
-    'install.step2.title': 'Copiez le plugin',
-    'install.step2.body.before':
-      'Dans le Finder, menu Aller › Aller au dossier…, collez ',
-    'install.step2.body.after':
-      ' puis glissez-y Freeze.component.',
-    'install.step3.title': 'Relancez votre hôte',
-    'install.step3.body':
-      'Redémarrez votre logiciel audio ou relancez son scan des plugins Audio Unit. Freeze apparaît sous « Freeze Audio by sheezy ».',
-
-    'install.gate.title': 'Premier chargement bloqué par macOS ?',
-    'install.gate.body':
-      'macOS peut afficher « “Freeze” ne peut pas être ouvert, car le développeur ne peut pas être vérifié ». C’est normal : Freeze est un logiciel gratuit, signé ad hoc et pas encore notarisé — rien n’est cassé. Deux solutions :',
-    'install.gate.gui':
-      'Après le premier chargement bloqué, ouvrez Réglages Système › Confidentialité et sécurité, puis cliquez sur « Ouvrir quand même ».',
-    'install.gate.term': 'Ou collez cette commande dans Terminal, puis relancez votre hôte :',
-
-    'compat.eyebrow': 'Compatibilité',
-    'compat.title.before': 'Pensé pour ',
-    'compat.title.accent': 'le Mac.',
-    'compat.lead':
-      'Freeze fonctionne dans les hôtes qui chargent les Audio Unit. Logic Pro, GarageBand et les autres hôtes AU sont compatibles en principe, mais n’ont pas encore été testés officiellement.',
-    'compat.yes': 'Pris en charge',
-    'compat.no': 'Non pris en charge',
-    'compat.os': 'Système',
-    'compat.osValue': 'macOS {min} Monterey ou plus récent',
-    'compat.cpu': 'Processeurs',
-    'compat.cpuValue':
-      'Binaire universel : Apple Silicon (arm64) et Intel (x86_64)',
-    'compat.format': 'Format',
-    'compat.formatValue': 'Audio Unit v2 (effet)',
-    'compat.tested': 'Testé',
-    'compat.testedValue': 'FL Studio sur Mac · validation Apple auval réussie',
-    'compat.unavailable': 'Non disponible',
-    'compat.unavailableValue': 'VST3, AAX et Windows',
-
-    'faq.eyebrow': 'FAQ',
-    'faq.title.before': 'Questions ',
-    'faq.title.accent': 'fréquentes.',
-    'faq.q1': 'Combien coûte Freeze ?',
-    'faq.a1':
-      'Freeze est gratuit. La version 1.0.0 se télécharge directement depuis cette page — sans compte, sans installeur, sans piège.',
-    'faq.q2': 'Existe-t-il une version VST3, AAX ou Windows ?',
-    'faq.a2': 'Non. Freeze est uniquement disponible en Audio Unit pour macOS.',
-    'faq.q3': 'Mon hôte ne trouve pas le plugin. Que faire ?',
-    'faq.a3':
-      'Vérifiez que Freeze.component se trouve bien dans ~/Library/Audio/Plug-Ins/Components, puis relancez l’hôte ou son scan des plugins. Dans FL Studio, lancez un nouveau scan depuis le gestionnaire de plugins.',
-    'faq.q4': 'Les paramètres sont-ils automatisables ?',
-    'faq.a4':
-      'Oui. Mode, Size, Warp, Feedback, Tone, Mix, Input, Output, Bypass et Freeze sont exposés à l’hôte comme paramètres Audio Unit.',
-    'faq.q5': 'Comment désinstaller Freeze ?',
-    'faq.a5':
-      'Supprimez Freeze.component du dossier ~/Library/Audio/Plug-Ins/Components puis relancez votre hôte.',
+    'install.title.accent': 'une minute.',
+    'install.macos.step1':
+      'Ouvrez {file} et suivez l’installeur. Il installe l’Audio Unit et le VST3.',
+    'install.macos.step2':
+      'Ou, depuis le .zip, copiez {component} dans {componentFolder} et {vst3} dans {vst3Folder}.',
+    'install.macos.step3':
+      'Relancez le scan des plugins dans votre DAW. Freeze apparaît sous « Freeze Audio by sheezy ».',
+    'install.macos.note.title': 'Bloqué par macOS ?',
+    'install.macos.note.body':
+      'Les builds ne sont pas encore notarisés. Faites un clic droit sur le .pkg puis Ouvrir, ou autorisez-le dans Réglages Système › Confidentialité et sécurité.',
+    'install.windows.step1':
+      'Lancez {file}. Il installe le VST3 dans {folder}.',
+    'install.windows.step2': 'Ou, depuis le .zip, copiez {vst3} dans ce dossier.',
+    'install.windows.step3':
+      'Relancez le scan des plugins dans votre DAW. Freeze apparaît sous « Freeze Audio by sheezy ».',
+    'install.windows.note.title': 'Avertissement SmartScreen ?',
+    'install.windows.note.body':
+      'L’installeur n’est pas encore signé. Cliquez sur Informations complémentaires, puis Exécuter quand même.',
 
     'footer.nav': 'Liens du pied de page',
-    'footer.download': 'Télécharger {version}',
+    'footer.download': 'Télécharger Freeze {version}',
+    'footer.features': 'Fonctions',
     'footer.install': 'Installation',
-    'footer.compat': 'Compatibilité',
-    'footer.faq': 'FAQ',
-    'footer.legal': 'Audio Unit pour macOS · Version {version}',
+    'footer.legal': 'VST3 et Audio Unit pour macOS et Windows · Version {version}',
   },
 } as const;
 
@@ -400,4 +239,15 @@ export function localeTag(lang: Lang): string {
 
 export function homePath(lang: Lang): string {
   return lang === defaultLang ? '/' : `/${lang}/`;
+}
+
+export type TemplatePart = { slot: false; text: string } | { slot: true; name: string };
+
+export function templateParts(template: string): TemplatePart[] {
+  return template
+    .split(/\{(\w+)\}/)
+    .map((piece, index): TemplatePart =>
+      index % 2 === 1 ? { slot: true, name: piece } : { slot: false, text: piece },
+    )
+    .filter((part) => part.slot || part.text.length > 0);
 }

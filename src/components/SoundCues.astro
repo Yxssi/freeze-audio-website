@@ -1,0 +1,57 @@
+<script>
+  import { bind, play, setEnabled, setTheme, unlock } from 'cuelume';
+
+  const storageKey = 'freeze-ui-sound';
+  const switchOffDelayMs = 160;
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-sound-toggle]');
+  let pendingSilence: number | undefined;
+
+  function readPreference(): boolean {
+    try {
+      return localStorage.getItem(storageKey) === 'on';
+    } catch {
+      return false;
+    }
+  }
+
+  function savePreference(enabled: boolean) {
+    try {
+      localStorage.setItem(storageKey, enabled ? 'on' : 'off');
+    } catch {
+      return;
+    }
+  }
+
+  function reflect(enabled: boolean) {
+    toggles.forEach((button) => button.setAttribute('aria-pressed', String(enabled)));
+  }
+
+  let enabled = readPreference();
+  setTheme('bubble');
+  setEnabled(enabled);
+  reflect(enabled);
+  bind();
+
+  async function switchSound() {
+    enabled = !enabled;
+    savePreference(enabled);
+    reflect(enabled);
+    window.clearTimeout(pendingSilence);
+    if (enabled) {
+      setEnabled(true);
+      await unlock();
+      play('toggle', { direction: 'forward' });
+      return;
+    }
+    play('toggle', { direction: 'back' });
+    pendingSilence = window.setTimeout(() => setEnabled(false), switchOffDelayMs);
+  }
+
+  toggles.forEach((button) => button.addEventListener('click', switchSound));
+
+  document.querySelectorAll<HTMLDetailsElement>('details[data-sound-disclosure]').forEach((details) => {
+    details.addEventListener('toggle', () => {
+      play(details.open ? 'open' : 'close', { emphasis: 'subtle' });
+    });
+  });
+</script>

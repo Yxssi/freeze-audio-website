@@ -41,7 +41,8 @@ La structure North (Marquee Hero, typo, espacements, rayons, air) est conservée
   - Grey Olive : réservé aux surfaces/traits neutres (non utilisé en texte).
   - Dusty Lavender : bordure des composants interactifs (bouton secondaire) ; base des neutres foncés dérivés.
 - **Section sombre** (interface + footer) : Dusty Lavender assombri (`--bg-dark`).
-- **Visuel du plugin** : capture réelle de l'UI rebuildée à la nouvelle palette (`src/assets/freeze-ui.png`, rendue par le harness `freeze/tools/dsp-test/test_ui.mm`), servie en WebP responsive via `astro:assets`.
+- **Visuel du plugin** : capture réelle de l'UI 1.1.0 (build VST3, mode Freeze, EVERY 1/4 ; `src/assets/freeze-ui.png`, 1400×880), servie en WebP responsive via `astro:assets`.
+- **Plateformes** : macOS et Windows ont toujours le même poids visuel (deux boutons primaires identiques dans le hero, deux cartes identiques en Téléchargement et Installation).
 
 ## Tokens dérivés et contrastes (WCAG 2.2)
 
